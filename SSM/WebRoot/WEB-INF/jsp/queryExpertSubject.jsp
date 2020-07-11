@@ -53,25 +53,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	
     	<input type="submit" value="搜索" />
     </form>  
-    <c:forEach items="${expertList}" var="expert">
-    	<hr>
-    	id:${expert.id}
-    	<br>
-    	姓名:${expert.name}
-    	<br>
-    	所属学校:${expert.school}
-    	<br>
-    	专业:${expert.major}
-    	<br>
-    	学科:${expert.subject}
-    	<br>
-    	论文:${expert.paper}
-    	<br>
-    	研究方向:${expert.research_direction}
-    	<br>
-    	<a href="expert/expertDetail?id=${expert.id}"><img src="images/detail.jpg"  class="img-full" style="width: 68px; height: 37px; "/></a>
-    	<hr>
-    </c:forEach>
+ 	<c:forEach items="${expertList}" var="expert">
+  		<div class="expertDetail panel" style="background:#F8F8FF;text-align:center;width:100%;">
+    		<div class="expertPicture">
+    			<img src="images/logo.png" class="img-circle" height="150" width="150">
+    		</div>
+    		<div class="panel panel-primary" id="expertDescription">
+				<div class="panel-heading">
+					<h3 class="panel-title"><a href="expert/getExpertList">${expert.name}</a></h3>
+					<span class="label label-warning"><a>${expert.school}</a></span>
+					<span class="label label-warning"><a>${expert.major}</a></span>
+					<span class="label label-warning"><a>${expert.subject}</a></span>
+					<span class="label label-warning"><a>${expert.research_direction}</a></span>
+				</div>
+			<div class="panel-body">
+				${expert.introduction}
+			</div>
+			</div>
+		</div>
+		<br>	
+	</c:forEach>
      <a href="${pageContext.request.contextPath}"><img src="images/return.jpg"  class="img-full" style="width: 68px; height: 37px; "/></a>
      <br>
      <a href="expert/returnIndex"><img src="images/return.jpg"  class="img-full" style="width: 68px; height: 37px; "/></a>
