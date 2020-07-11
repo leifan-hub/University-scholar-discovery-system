@@ -5,8 +5,28 @@
 	<select id="getExpertList" resultType="com.ssm.domain.Expert">
 		select * from expert
 	</select>
+	
 	<select id="getExpertByName" parameterType="String" resultType="com.ssm.domain.Expert">
-		select * from expert where name=#{name}
+<!-- 		select * from expert where name=#{name} -->
+		select * from expert where name like CONCAT('%',#{name},'%')
+	</select>
+	<select id="getExpertBySchool" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where school like CONCAT('%',#{school},'%')
+	</select>
+		<select id="getExpertByMajor" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where major like CONCAT('%',#{major},'%')
+	</select>
+		<select id="getExpertBySubject" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where subject like CONCAT('%',#{subject},'%')
+	</select>
+		<select id="getExpertByPaper" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where paper like CONCAT('%',#{paper},'%')
+	</select>
+		<select id="getExpertByResearch" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where research_direction like CONCAT('%',#{research_direction},'%')
+	</select>
+		<select id="getExpertByIntroduction" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where introduction like CONCAT('%',#{introduction},'%')
 	</select>
 	
 	<select id="getExpertById" parameterType="int" resultType="com.ssm.domain.Expert">
