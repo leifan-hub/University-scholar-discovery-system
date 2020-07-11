@@ -13,6 +13,26 @@
 		select * from expert where id=#{id}
 	</select>
 	
+        <select id="getExpertBySchool" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where school=#{school}
+	</select>
+	
+	<select id="getExpertByMajor" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where major=#{major}
+	</select>
+	
+	<select id="getExpertBySubject" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where subject=#{subject}
+	</select>
+	
+	<select id="getExpertByPaper" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where paper=#{paper}
+	</select>
+	
+	<select id="getExpertByResearchDirection" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where research_direction=#{research_direction}
+	</select>
+	
 	<insert id="addExpert" parameterType="Expert">
 		insert into expert(name,school,major,subject,paper,research_direction,introduction) values (#{name},#{school},#{major},#{subject},#{paper},#{research_direction},#{introduction})
 	</insert>
