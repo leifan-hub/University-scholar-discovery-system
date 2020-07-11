@@ -79,11 +79,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form action="expert/getExpertByName"  method="post" accept-charset="UTF-8" onsubmit="document.charset='UTF-8'">    
     <div id="mainnav" style="text-align:center;display:block;">    
     <a href="${pageContext.request.contextPath}" class="a"><font color="red" size="6"><b>首页</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertList" class="a"><font color="red" size="6"><b>专家</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertList" class="a"><font color="red" size="6"><b>高校</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertList" class="a"><font color="red" size="6"><b>专业领域</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertList" class="a"><font color="red" size="6"><b>论文</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertList" class="a"><font color="red" size="6"><b>研究领域</b></font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="expert/getExpertListByName" class="a"><font color="red" size="6"><b>专家</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="expert/getExpertListBySchool" class="a"><font color="red" size="6"><b>高校</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="expert/getExpertListByMajor" class="a"><font color="red" size="6"><b>专业</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="expert/getExpertListBySubject" class="a"><font color="red" size="6"><b>学科</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+    <a href="expert/getExpertListByPaper" class="a"><font color="red" size="6"><b>论文</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="expert/getExpertListByResearchDirection" class="a"><font color="red" size="6"><b>研究领域</b></font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="text" name="name" style="width:200px; height:30px;line-height:40px;" placeholder="请输入专家名"/> 
     <input type="submit" style="width:40px; height:30px;line-height:40px;" value="搜索" />  
     </div>
