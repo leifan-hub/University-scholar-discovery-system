@@ -54,7 +54,7 @@ public class Expert {
  public String getIntroduction() {
 	 return introduction;
  }
- public void setIntruduction(String introduction) {
+ public void setIntroduction(String introduction) {
 	 this.introduction=introduction;
  }
  

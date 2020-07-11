@@ -37,7 +37,55 @@ public class ExpertController {
 		return model;
 	}
 	
+		@RequestMapping("/getExpertBySchool")
+	public ModelAndView getExpertBySchool(String school) {
+		List<Expert> expert =expertService.getExpertBySchool(school);
+		
+		ModelAndView model = new ModelAndView();
+		model.addObject("expertList", expert);
+		model.setViewName("queryExpertSchool");
+		return model;
+	}
 	
+	@RequestMapping("/getExpertByMajor")
+	public ModelAndView getExpertByMajor(String major) {
+		List<Expert> expert =expertService.getExpertByMajor(major);
+		
+		ModelAndView model = new ModelAndView();
+		model.addObject("expertList", expert);
+		model.setViewName("queryExpertMajor");
+		return model;
+	}
+	
+	@RequestMapping("/getExpertBySubject")
+	public ModelAndView getExpertBySubject(String subject) {
+		List<Expert> expert =expertService.getExpertBySubject(subject);
+		
+		ModelAndView model = new ModelAndView();
+		model.addObject("expertList", expert);
+		model.setViewName("queryExpertSubject");
+		return model;
+	}
+	
+	@RequestMapping("/getExpertByPaper")
+	public ModelAndView getExpertByPaper(String paper) {
+		List<Expert> expert =expertService.getExpertByPaper(paper);
+		
+		ModelAndView model = new ModelAndView();
+		model.addObject("expertList", expert);
+		model.setViewName("queryExpertPaper");
+		return model;
+	}
+	
+	@RequestMapping("/getExpertByResearchDirection")
+	public ModelAndView getExpertByResearchDirection(String research_direction) {
+		List<Expert> expert =expertService.getExpertByName(research_direction);
+		
+		ModelAndView model = new ModelAndView();
+		model.addObject("expertList", expert);
+		model.setViewName("queryExpertDirection");
+		return model;
+	}
 	
 	@RequestMapping("/index")
 	public ModelAndView index() {
@@ -52,8 +100,7 @@ public class ExpertController {
 		expertService.delete(id);
 		return new ModelAndView("redirect:/expert/index");
 	}
-	
-	
+		
 	
 	@RequestMapping("/returnIndex")
 	public ModelAndView returnIndex() {
@@ -93,5 +140,11 @@ public class ExpertController {
 	
 	}
 	
-	
+	@RequestMapping("/expertDetail")
+	public ModelAndView expertDetail(int id) {
+		ModelAndView model = new ModelAndView();
+		//model.addObject("expert", expertService.getExpertById(id));
+		model.setViewName("expertDetail");
+		return model;
+	}
 }
