@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.mapper.ExpertMapper" >
+	
+	<select id="getExpertList" resultType="com.ssm.domain.Expert">
+		select * from expert
+	</select>
+	<select id="getExpertByName" parameterType="String" resultType="com.ssm.domain.Expert">
+		select * from expert where name=#{name}
+	</select>
+	
+	<select id="getExpertById" parameterType="int" resultType="com.ssm.domain.Expert">
+		select * from expert where id=#{id}
+	</select>
+	
+	<insert id="addExpert" parameterType="Expert">
+		insert into expert(name,school,major,subject,paper,research_direction,introduction) values (#{name},#{school},#{major},#{subject},#{paper},#{research_direction},#{introduction})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from expert where id=#{id}
+	</delete>
+	
+	
+	<update id="update" parameterType="Expert">
+		update expert set name=#{name},school=#{school},major=#{major},subject=#{subject},paper=#{paper},research_direction=#{research_direction},introduction=#{introduction} where id=#{id}
+	</update>
+	
+	
+</mapper>
