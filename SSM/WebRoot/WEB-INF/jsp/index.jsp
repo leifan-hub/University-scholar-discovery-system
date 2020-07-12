@@ -4,7 +4,11 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<!-- 
+ author：涂珈玮 李龙军 
+ create: time: 2020-07-05
+ update：time:  2020-07-12
+ -->
 <!DOCTYPE>
 <html>
   <head>
@@ -79,12 +83,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form action="expert/getExpertByName"  method="post" accept-charset="UTF-8" onsubmit="document.charset='UTF-8'">    
     <div id="mainnav" style="text-align:center;display:block;">    
     <a href="${pageContext.request.contextPath}" class="a"><font color="red" size="6"><b>首页</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertListByName" class="a"><font color="red" size="6"><b>专家</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertListBySchool" class="a"><font color="red" size="6"><b>高校</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertListByMajor" class="a"><font color="red" size="6"><b>专业</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertListBySubject" class="a"><font color="red" size="6"><b>学科</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
-    <a href="expert/getExpertListByPaper" class="a"><font color="red" size="6"><b>论文</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertListByResearchDirection" class="a"><font color="red" size="6"><b>研究领域</b></font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="expert/getExpertByName" class="a"><font color="red" size="6"><b>专家</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="expert/getExpertBySchool" class="a"><font color="red" size="6"><b>高校</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="expert/getExpertByMajor" class="a"><font color="red" size="6"><b>专业</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="expert/getExpertBySubject" class="a"><font color="red" size="6"><b>学科</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="expert/getExpertByPaper" class="a"><font color="red" size="6"><b>论文</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="expert/getExpertByResearchDirection" class="a"><font color="red" size="6"><b>研究领域</b></font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="text" name="name" style="width:200px; height:30px;line-height:40px;" placeholder="请输入专家名"/> 
     <input type="submit" style="width:40px; height:30px;line-height:40px;" value="搜索" />  
     </div>
@@ -108,11 +112,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		</div>
     		<div class="panel panel-primary" id="expertDescription">
 				<div class="panel-heading">
-					<h3 class="panel-title"><a href="expert/getExpertList">${expert.name}</a></h3>
-					<span class="label label-warning"><a>${expert.school}</a></span>
-					<span class="label label-warning"><a>${expert.major}</a></span>
-					<span class="label label-warning"><a>${expert.subject}</a></span>
-					<span class="label label-warning"><a>${expert.research_direction}</a></span>
+					<h3 class="panel-title"><a href="expert/getExpertById?id=${expert.id}">${expert.name}</a></h3>
+					<span class="label label-warning"><a href="expert/getExpertBySchool?school=${expert.school}">${expert.school}</a></span>
+					<span class="label label-warning"><a href="expert/getExpertByMajor?major=${expert.major}">${expert.major}</a></span>
+					<span class="label label-warning"><a href="expert/getExpertBySubject?subject=${expert.subject}">${expert.subject}</a></span>
+					<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expert.research_direction}">${expert.research_direction}</a></span>
 				</div>
 			<div class="panel-body">
 				${expert.introduction}

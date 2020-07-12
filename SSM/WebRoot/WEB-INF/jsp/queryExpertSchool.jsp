@@ -4,7 +4,11 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<!-- 
+ author：涂珈玮 
+ create: time: 2020-07-10
+ update：time:  2020-07-12
+ -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -62,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		</div>
     		<div class="panel panel-primary" id="expertDescription">
 				<div class="panel-heading">
-					<h3 class="panel-title"><a href="expert/getExpertList">${expert.name}</a></h3>
+					<h3 class="panel-title"><a href="expert/getExpertById?id=${expert.id}">${expert.name}</a></h3>
 					<span class="label label-warning"><a>${expert.school}</a></span>
 					<span class="label label-warning"><a>${expert.major}</a></span>
 					<span class="label label-warning"><a>${expert.subject}</a></span>
@@ -75,8 +79,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<br>	
 	</c:forEach>
-     <a href="${pageContext.request.contextPath}"><img src="images/return.jpg"  class="img-full" style="width: 68px; height: 37px; "/></a>
-     <br>
      <a href="expert/returnIndex"><img src="images/return.jpg"  class="img-full" style="width: 68px; height: 37px; "/></a>
   </body>
 </html>

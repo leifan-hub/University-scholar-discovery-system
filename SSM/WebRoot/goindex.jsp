@@ -4,7 +4,11 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<!-- 
+ author：涂珈玮 李龙军 
+ create: time: 2020-07-05
+ update：time:  2020-07-12
+ -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -23,20 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
-    This is my JSP page. <br>
-    
-    <c:forEach items="${expertList}" var="expert">
-    	<hr>
-    	id:${expert.id}
-    	<br>
-    	name:${expert.name}
-    	<br>
-    	<a href="expert/delete?id=${expert.id}">删除</a>
-    	<a href="expert/preupdate?id=${expert.id}">修改</a>
-    	<hr>
-    </c:forEach>
-     <a href="${pageContext.request.contextPath}">返回主页</a>
-     <a href="expert/returnIndex">返回主页</a>
+  <body>    
+  <jsp:forward page="expert/returnIndex"></jsp:forward>
   </body>
 </html>
