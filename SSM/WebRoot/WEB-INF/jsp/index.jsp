@@ -4,11 +4,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!-- 
- author：涂珈玮 李龙军 
- create: time: 2020-07-05
- update：time:  2020-07-12
- -->
+
 <!DOCTYPE>
 <html>
   <head>
@@ -36,25 +32,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		background:url(images/bg1.jpg);
 		background-size:cover;	
 	}
-	.a{
-		text-decoration: none;
-    	line-height: 35px;
-	}
 	.b{
 		z-index:10;
 		position: fixed;
 		width:100%;
-	    height:180px;
 		text-align:center;
-	 	background:url(images/bg.jpg);
+		background:url(images/bg.jpg) 0 0 no-repeat #B0E0E6;
 		background-size:cover;
 	}
-	.mainnav {
-		z-index:10;
-	    height: 40px;
-	    line-height: 40px;
-		border-bottom: 3px solid #ff7900; 
- 	}
+	.c{
+		z-index:8;
+		text-align:center;
+		width:100%;
+		background:url(images/bggif1.gif) 0 0 no-repeat #F8F8FF;
+		background-size:cover;	
+	}
 	#expertDescription {
 		display: inline-block;
     	line-height:30px;
@@ -69,47 +61,87 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		position:relative;
 		float:top;
 	}
+	.nav{
+		z-index:10;
+		position: fixed;
+	   	height:40px;
+	   	width:100%;
+	   	margin-top:20px;
+	}
+	.nav ul{
+	   list-style:none;
+	   height:45.15px;
+	   border-bottom:5px solid #FF6600;
+	}
+	.nav li{
+	   float:left;
+	   margin-top:0px;
+	}
+	.nav li a{
+	    background-color:#EEEEEE;
+	    text-decoration:none;
+	    color:#000000;
+	    display:block;
+	    width:120px;
+	    height:40px;
+	    line-height:40px;
+	    text-align:center;
+	    margin-left:1px;
+	}
+	.nav li a:hover,.nav li a.on{
+	    background-color:#FF6600;
+	    color:#FFFFFF;
+	    /*伸缩变换设置高度变化*/
+	    height:40px;
+	    /*和使用负值向反方向移动*/
+	    margin-top:0px;
+	    line-height:40px;
+	}
+ 	input{
+	    outline-style: none ;
+	    border: 1px solid #ccc; 
+	    border-radius: 3px;
+	}
 	</style>
   </head>
   
   <body>
-  <div id="div1" class="b">
-  	<br>
+	<div id="div1" class="b">
     <img id="image"src="images/logo.png" width="100" height="100" style="vertical-align:middle;" > 
     <font style="FONT-FAMILY:华文行楷" size=8>欢迎访问高校学者专家系统 </font>
+    </div>
     <br>
     <br>
-    <div class="mainnav">
-    <form action="expert/getExpertByName"  method="post" accept-charset="UTF-8" onsubmit="document.charset='UTF-8'">    
-    <div id="mainnav" style="text-align:center;display:block;">    
-    <a href="${pageContext.request.contextPath}" class="a"><font color="red" size="6"><b>首页</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertByName" class="a"><font color="red" size="6"><b>专家</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertBySchool" class="a"><font color="red" size="6"><b>高校</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertByMajor" class="a"><font color="red" size="6"><b>专业</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertBySubject" class="a"><font color="red" size="6"><b>学科</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertByPaper" class="a"><font color="red" size="6"><b>论文</b></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="expert/getExpertByResearchDirection" class="a"><font color="red" size="6"><b>研究领域</b></font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="name" style="width:200px; height:30px;line-height:40px;" placeholder="请输入专家名"/> 
-    <input type="submit" style="width:40px; height:30px;line-height:40px;" value="搜索" />  
+    <br>
+    <br>
+    <div class="nav" style="text-align:center;width:100%;background:#F8F8FF;background-size:cover;">
+        <ul>
+		<li style="margin-left:120px;"><a class="on" href="${pageContext.request.contextPath}"><font color="red" size="5"><b>首页</b></font></a></li>
+		<li><a href="expert/getExpertByName"><font color="red" size="5"><b>专家</b></font></a></li>
+		<li><a href="expert/getExpertBySchool"><font color="red" size="5"><b>高校</b></font></a></li>
+		<li><a href="expert/getExpertByMajor"><font color="red" size="5"><b>专业</b></font></a></li>
+		<li><a href="expert/getExpertBySubject"><font color="red" size="5"><b>学科</b></font></a></li>
+		<li><a href="expert/getExpertByPaper"><font color="red" size="5"><b>论文</b></font></a></li>
+		<li><a href="expert/getExpertByResearchDirection"><font color="red" size="5"><b>研究领域</b></font></a></li>
+		<li style="margin-left:50px;">
+			<form action="expert/getExpertByName"  method="post" accept-charset="UTF-8" onsubmit="document.charset='UTF-8'">    
+		    <input type="text" name="name" style="width:200px; height:40px;" placeholder="请输入专家名"/> 
+		    <input type="submit" style="width:40px; height:40px;" value="搜索"/>  
+		  	</form>
+		</li>
+	    </ul>   
     </div>
-  	</form>
-    </div>
-  </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
 <br>
  	<c:forEach items="${expertList}" var="expert">
-  		<div class="expertDetail panel" style="background:#F8F8FF;text-align:center;width:100%;">
+  		<div class="expertDetail panel c">
+  		<br>
     		<div class="expertPicture">
     			<img src="images/logo.png" class="img-circle" height="150" width="150">
     		</div>
+    		<br>
     		<div class="panel panel-primary" id="expertDescription">
 				<div class="panel-heading">
 					<h3 class="panel-title"><a href="expert/getExpertById?id=${expert.id}">${expert.name}</a></h3>
@@ -125,15 +157,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<br>	
 	</c:forEach>
-
-    
-    
-<!-- <form action="expert/getExpertByName"  method="post" accept-charset="UTF-8" onsubmit="document.charset='UTF-8'"> -->
-<!--     	搜索用户名：<input type="text" name="name" /> -->
-<!--     	<input type="submit" value="点击提交" />    	 -->
-<!--     	<br> -->
-<!-- </form>  -->
-
 
   </body>
 </html>
