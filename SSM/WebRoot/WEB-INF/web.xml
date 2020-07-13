@@ -10,7 +10,19 @@
   	<param-value>classpath:spring/application*.xml</param-value>
   </context-param>
   
+  <servlet-mapping> 
+
+  <servlet-name>default</servlet-name> 
+
+  <url-pattern>*.js</url-pattern> 
+
+  <url-pattern>*.css</url-pattern> 
+
+  <url-pattern>/assets/*"</url-pattern> 
+
+  <url-pattern>/images/*</url-pattern> 
   
+  </servlet-mapping>
   
   <context-param>
 		<param-name>spring.profiles.active</param-name>
@@ -33,7 +45,7 @@
   </listener>
   
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>goindex.jsp</welcome-file>
   </welcome-file-list>
   
    <servlet>
@@ -50,35 +62,9 @@
  <url-pattern>/</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>goindex.jsp</welcome-file>
   </welcome-file-list>
-   <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.css</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.js</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.png</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.jpg</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.gif</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.html</url-pattern>
-    </servlet-mapping>
-
+  
   
   
   <filter>

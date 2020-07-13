@@ -4,14 +4,18 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<!-- 
+ author：李龙军 胡志豪 
+ create: time: 2020-07-05
+ update：time:  2020-07-10
+ -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <base href="<%=basePath%>">
     
     <title>user.jsp</title>
-    
+
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -25,7 +29,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     This is my JSP page. <br>
-    
     <form action="expert/update"  method="post" accept-charset="UTF-8" onsubmit="document.charset='UTF-8'">
     	编号：<input type="text" value="${expert.id}" name="id" readonly="true"/>
     	<br>
