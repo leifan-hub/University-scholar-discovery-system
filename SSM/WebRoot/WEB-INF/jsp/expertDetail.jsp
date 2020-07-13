@@ -3,8 +3,13 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/WebRoot";
+String str_id=request.getParameter("id");
 %>
-
+<!-- 
+ author：雷凡 叶茂盛 
+ create: time: 2020-07-07
+ update：time:  2020-07-12
+ -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
@@ -15,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="expires" content="0">    
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 		<meta http-equiv="description" content="This is my page">
+		<link href="css/style1.css" rel="stylesheet">
 		<!-- 新 Bootstrap 核心 CSS 文件 -->
 		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
@@ -59,7 +65,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			.hot-scholars{
 				float:right;
 				width:350px;
-				text-align:center;
 			}
 			a:link{color:#000000}
 			</style>
@@ -68,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<body>
   		<div class="expertDetail">
     		<div class="expertPicture">
-    			<img src="images/yeqiu.jpeg" class="img-circle" height="150" width="150">
+    			<img src="images/luojun.jpg" class="img-circle" height="150" width="150">
     		</div>
     		<div class="panel panel-primary" id="expertDescription">
 				<div class="panel-heading">
@@ -76,21 +81,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="label label-warning"><a>${expert.school}</a></span>
 					<span class="label label-warning"><a>${expert.major}</a></span>
 					<span class="label label-warning"><a>${expert.subject}</a></span>
-					<span class="label label-warning"><a>${expert.research_direction}</a></span>
+					<c:forEach var="expertDirection" items="${expertDirections}" >
+        				<span class="label label-warning"><a>${expertDirection}</a></span>
+   					</c:forEach>
 				</div>
 			<div class="panel-body">
 				${expert.introduction}
 			</div>
 			</div>
+			<a href="expert/returnIndex"><font color="blue" size="5"><b>返回主页</b></font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 		</div>
 		<div class="expertArticle">
 			<ul class="list-group">
     			<li class="list-group-item active">文章</li>
-    			<li class="list-group-item"><a>打怪秘籍</a></li>
-    			<li class="list-group-item"><a>武器维修图纸大全</a></li>
-    			<li class="list-group-item"><a>一夜暴富秘籍</a></li>
-    			<li class="list-group-item"><a>如何讨取富婆的欢心</a></li>
-    			<li class="list-group-item"><a>论人类的发展前景</a></li>
+    			<c:forEach var="expertPaper" items="${expertPapers}" >
+        			<li class="list-group-item"><a>${expertPaper}</a></li>
+   				</c:forEach>
     			<li class="list-group-item">
     				<ul class="pagination" id="changePage">
 						<li><a href="#">&laquo;</a></li>
@@ -110,50 +116,74 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         			<h3 class="panel-title">代表著作</h3>
     			</div>
     			<div class="panel-body">
-        			《五年高考，三年模拟》
+        			${expert.paper}
     			</div>
 			</div>
-		</div>
-		<div class="projects">
-			<div class="panel panel-default">
-    			<div class="panel-heading">
-        			<h3 class="panel-title">项目</h3>
-    			</div>
-    			<div class="panel-body">
-        			《全职高手》
-    			</div>
+				<div class="projects">
+					<div class="panel panel-default">
+	    				<div class="panel-heading">
+	        				<h3 class="panel-title">项目</h3>
+	    				</div>
+	    				<div class="panel-body">
+	        				暂无
+	    				</div>
+					</div>
+					<div class="hot-tags">
+						<div class="panel panel-default">
+		    				<div class="panel-heading">
+		        				<h3 class="panel-title">热门标签</h3>
+		    				</div>
+		    				<div class="panel-body">
+		    					<h4>
+		        				<span class="label label-warning"><a>大数据</a></span>
+								<span class="label label-warning"><a>人工智能</a></span>
+								<span class="label label-warning"><a>机器学习</a></span>
+								<span class="label label-warning"><a>区块链</a></span>
+								</h4>
+		    				</div>
+						</div>
+						<div class="hot-scholars">
+							<div class="panel panel-default">
+		    					<div class="panel-heading">
+		        					<h3 class="panel-title">同领域学者</h3>
+		    					</div>
+		    					<div class="panel-body">
+			        				<img src="images/chenguangqian.png" class="img-circle" height="150" width="150">
+			        				<img src="images/cuixiaobo.jpg" class="img-circle" height="150" width="150">
+			        				<img src="images/fuyiping.jpg" class="img-circle" height="150" width="150">
+			        				<img src="images/fuzhihua.jpg" class="img-circle" height="150" width="150">
+			        				<img src="images/xieshaofeng.jpg" class="img-circle" height="150" width="150">
+			        				<img src="images/zhengaijun.png" class="img-circle" height="150" width="150">
+		    					</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+		<div style="float:left">
+		<div class="d-sty">
+		<h3 class="h-sty">同研究方向学者</h3>
 		</div>
-		<div class="hot-tags">
-			<div class="panel panel-default">
-    			<div class="panel-heading">
-        			<h3 class="panel-title">热门标签</h3>
-    			</div>
-    			<div class="panel-body">
-    				<h4>
-        			<span class="label label-warning"><a>大数据</a></span>
-					<span class="label label-warning"><a>人工智能</a></span>
-					<span class="label label-warning"><a>机器学习</a></span>
-					<span class="label label-warning"><a>区块链</a></span>
-					</h4>
-    			</div>
-			</div>
-		</div>
-		<div class="hot-scholars">
-			<div class="panel panel-default">
-    			<div class="panel-heading">
-        			<h3 class="panel-title">同领域学者</h3>
-    			</div>
-    			<div class="panel-body">
-        			<img src="images/sumucheng.jpg" class="img-circle" height="150" width="150">
-        			<img src="images/huangshaotian.jpg" class="img-circle" height="150" width="150">
-        			苏沐橙            黄少天<br/>
-        			<img src="images/qiaoyifan.jpg" class="img-circle" height="150" width="150">
-        			<img src="images/luoji.jpg" class="img-circle" height="150" width="150">
-        			<img src="images/tangrou.jpg" class="img-circle" height="150" width="150">
-        			<img src="images/baorongxing.jpg" class="img-circle" height="150" width="150">
-    			</div>
-			</div>
-		</div>
+          <c:forEach items="${expertrelatedList}" var="expertrelated">   
+            <div class="div-style1">
+            <div class="div-style2">
+            <img class="img-style1" src="images/head.png">
+            <img class="img-style2" src="images/identity.png"/> 
+            </div>
+            <div class="m-180">
+                  <a class="a-style1" href="expert/getExpertById?id=${expertrelated.id}" >
+                  <span class="s-style1">${expertrelated.name}</span>
+                  <span class="s-style2">${expertrelated.school}</span>       
+                  </a>          
+                                     
+    	          <p class="p-style1">
+                                     简介:${expertrelated.introduction} </p>
+                 <p style="color: #666;font-size: 16px;">研究方向：${expertrelated.research_direction}</p>
+            </div>                
+    	    </div> 	    
+        </c:forEach>
+    </div>
+		
+		
 	</body>
 </html>

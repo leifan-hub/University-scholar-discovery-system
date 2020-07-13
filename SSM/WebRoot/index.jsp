@@ -15,18 +15,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	
+	<link rel="stylesheet" type="text/css" href="css/style1.css">
+	
   </head>
   
-  <body>
+  <body class="c-red">
+  <img src="images/350.jpg">
     This is my JSP page. <br>
     
     
     <a href="expert/getExpertList">点击进入列表页</a>
     <br>
     <a href="expert/preaddExpert">点击进入添加用户页</a>
+    <a href="expert/expertDetail">点击进入用户详情页</a>
     <center>
    <br>
 	<!--	<form action="getUserList" method="get">

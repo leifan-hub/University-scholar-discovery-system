@@ -5,9 +5,9 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <!-- 
- author：李龙军 胡志豪 
+ author：涂珈玮 李龙军 
  create: time: 2020-07-05
- update：time:  2020-07-10
+ update：time:  2020-07-12
  -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>user.jsp</title>
-
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -27,18 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
-    This is my JSP page. <br>
-    <form action="expert/update"  method="post" accept-charset="UTF-8" onsubmit="document.charset='UTF-8'">
-    	编号：<input type="text" value="${expert.id}" name="id" readonly="true"/>
-    	<br>
-    	用户名：<input type="text" value="${expert.name}" name="name" />
-    	<br>
-    	
-    	<input type="submit" value="点击修改" />
-    </form> 
-
-     <a href="${pageContext.request.contextPath}">返回主页</a>
-     <a href="expert/returnIndex">返回主页</a>
+  <body>    
+  <jsp:forward page="expert/returnIndex"></jsp:forward>
   </body>
 </html>

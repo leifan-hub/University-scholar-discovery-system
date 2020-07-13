@@ -9,7 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ssm.domain.Expert;
 import com.ssm.service.ExpertService;
-
+/**
+* author£ººúÖ¾ºÀ 
+* create: time: 2020-07-05
+* update£ºtime:  2020-07-07
+*/
 
 public class DeleteExpertTest extends BaseTest {
 	@Autowired

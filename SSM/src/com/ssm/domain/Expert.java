@@ -1,5 +1,9 @@
 package com.ssm.domain;
-
+/**
+* author£ººúÖ¾ºÀ 
+* create: time: 2020-07-05
+* update£ºtime:  2020-07-12
+*/
 public class Expert {
  private int id;
  private String name;
@@ -54,7 +58,7 @@ public class Expert {
  public String getIntroduction() {
 	 return introduction;
  }
- public void setIntruduction(String introduction) {
+ public void setIntroduction(String introduction) {
 	 this.introduction=introduction;
  }
  
