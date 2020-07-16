@@ -21,15 +21,15 @@ public class ExpertController {
 	@Autowired
 	private ExpertService expertService;
 	
-	@RequestMapping("/getExpertList")
-	public ModelAndView getUserList() {
-		List<Expert> expertList = expertService.getExpertList();
-		
-		ModelAndView model = new ModelAndView();
-		model.addObject("expertList", expertList);
-		model.setViewName("expertDetail");
-		return model;
-	}
+//	@RequestMapping("/getExpertList")
+//	public ModelAndView getUserList() {
+//		List<Expert> expertList = expertService.getExpertList();
+//		
+//		ModelAndView model = new ModelAndView();
+//		model.addObject("expertList", expertList);
+//		model.setViewName("expertDetail");
+//		return model;
+//	}
 	
 	@RequestMapping("/returnIndex")
 	public ModelAndView returnIndex() {
@@ -101,19 +101,20 @@ public class ExpertController {
 		return model;
 	}	
 	
-	@RequestMapping("/getExpertByIntroduction")
-	public ModelAndView getExpertByIntroduction(String introduction) {
-		List<Expert> expert =expertService.getExpertByIntroduction(introduction);
+	//@RequestMapping("/getExpertByIntroduction")
+	//public ModelAndView getExpertByIntroduction(String introduction) {
+	//	List<Expert> expert =expertService.getExpertByIntroduction(introduction);
 		
-		ModelAndView model = new ModelAndView();
-		model.addObject("expertList", expert);
-		model.setViewName("expertDetail");
-		return model;
-	}	
+	//	ModelAndView model = new ModelAndView();
+	//	model.addObject("expertList", expert);
+	//	model.setViewName("expertDetail");
+	//	return model;
+//	}	
 
 	@RequestMapping("/getExpertById")
 	public ModelAndView getExpertById(int id) {
 		Expert expert =expertService.getExpertById(id);
+		expertService.addpageview(id);
 		List<String>expertPapers=new ArrayList<String>();
 		List<String>expertDirections=new ArrayList<String>();
 		

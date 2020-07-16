@@ -57,6 +57,11 @@ public class ExpertServiceImpl implements ExpertService {
     	return  expertMapper.update(expert);
 	}
 	
+    public int addpageview(int id) {
+		
+    	return  expertMapper.addpageview(id);
+	}
+    
 	public int delete(int id) {
 		return expertMapper.delete(id);
 	}
