@@ -8,7 +8,7 @@ String str_id=request.getParameter("id");
 <!-- 
  author：雷凡 叶茂盛 
  create: time: 2020-07-07
- update：time:  2020-07-12
+ update：time:  2020-07-16
  -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -73,7 +73,7 @@ String str_id=request.getParameter("id");
 	<body>
   		<div class="expertDetail">
     		<div class="expertPicture">
-    			<img src="images/luojun.jpg" class="img-circle" height="150" width="150">
+    			<img src=${picUrl} class="img-circle" height="150" width="150">
     		</div>
     		<div class="panel panel-primary" id="expertDescription">
 				<div class="panel-heading">
@@ -113,19 +113,19 @@ String str_id=request.getParameter("id");
 		<div class="representative-works">
 			<div class="panel panel-default">
     			<div class="panel-heading">
-        			<h3 class="panel-title">代表著作</h3>
+        			<h3 class="panel-title">玫瑰图</h3>
     			</div>
     			<div class="panel-body">
-        			${expert.paper}
+        			<img src="RoseCharts/${expert.name}_rose.png" class="img-rounded" height="200" width="200">
     			</div>
 			</div>
 				<div class="projects">
 					<div class="panel panel-default">
 	    				<div class="panel-heading">
-	        				<h3 class="panel-title">项目</h3>
+	        				<h3 class="panel-title">词云图</h3>
 	    				</div>
 	    				<div class="panel-body">
-	        				暂无
+	        				<img src="WordClouds/${expert.name}.png" class="img-rounded" height="200" width="200">
 	    				</div>
 					</div>
 					<div class="hot-tags">
@@ -148,12 +148,9 @@ String str_id=request.getParameter("id");
 		        					<h3 class="panel-title">同领域学者</h3>
 		    					</div>
 		    					<div class="panel-body">
-			        				<img src="images/chenguangqian.png" class="img-circle" height="150" width="150">
-			        				<img src="images/cuixiaobo.jpg" class="img-circle" height="150" width="150">
-			        				<img src="images/fuyiping.jpg" class="img-circle" height="150" width="150">
-			        				<img src="images/fuzhihua.jpg" class="img-circle" height="150" width="150">
-			        				<img src="images/xieshaofeng.jpg" class="img-circle" height="150" width="150">
-			        				<img src="images/zhengaijun.png" class="img-circle" height="150" width="150">
+		    						<c:forEach items="${sameDomainPics}" var="sameDomainPic">   
+			        					<img src=${sameDomainPic} class="img-rounded" height="200" width="200">
+			        				</c:forEach>
 		    					</div>
 							</div>
 						</div>

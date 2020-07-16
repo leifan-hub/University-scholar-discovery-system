@@ -25,4 +25,5 @@ public interface ExpertMapper {
 	public int delete(int id);
 	public int update(Expert expert);
 	public int addpageview(int id);
+	public String getExpertPicByName(String name);
 }
