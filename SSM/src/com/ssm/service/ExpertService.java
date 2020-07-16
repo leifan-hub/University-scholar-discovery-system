@@ -24,4 +24,5 @@ public interface ExpertService {
 	public int delete(int userId);
 	public int update(Expert expert);
 	public int addpageview(int id);
+	public String getExpertPicByName(String name);
 }

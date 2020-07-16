@@ -65,6 +65,11 @@ public class ExpertServiceImpl implements ExpertService {
 	public int delete(int id) {
 		return expertMapper.delete(id);
 	}
+	@Override
+	public String getExpertPicByName(String name) {
+		
+		return expertMapper.getExpertPicByName(name);
+	}
 
 	
 	

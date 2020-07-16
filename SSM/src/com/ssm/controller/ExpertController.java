@@ -117,6 +117,8 @@ public class ExpertController {
 		expertService.addpageview(id);
 		List<String>expertPapers=new ArrayList<String>();
 		List<String>expertDirections=new ArrayList<String>();
+		List<String>sameDomainPics=new ArrayList<String>();
+		String picUrl =expertService.getExpertPicByName(expert.getName());
 		
 		String[] expertPapers_string=expert.getPaper().split("#");
 		for (String expertPaper : expertPapers_string) {
@@ -126,7 +128,6 @@ public class ExpertController {
 		String[] expertDirections_string=expert.getResearch_direction().split(",|¡£|¡¢");
 		for (String expertDirection : expertDirections_string) {
 			expertDirections.add(expertDirection);
-			System.out.println(expertDirection);
 		}
 		String Research=expert.getResearch_direction();
 		List<Expert> expertrelated =expertService.getExpertByResearch(Research);
@@ -134,12 +135,17 @@ public class ExpertController {
 			if(expertrelated.get(i).getId()==expert.getId()) {
 				expertrelated.remove(i);
 			}
+			else {
+				sameDomainPics.add(expertService.getExpertPicByName(expertrelated.get(i).getName()));
+			}
 		}
 		ModelAndView model = new ModelAndView();
 		model.addObject("expert", expert);
 		model.addObject("expertrelatedList", expertrelated);
 		model.addObject("expertPapers", expertPapers);
 		model.addObject("expertDirections", expertDirections);
+		model.addObject("picUrl", picUrl);
+		model.addObject("sameDomainPics", sameDomainPics);
 		model.setViewName("expertDetail");
 		return model;
 	}	
