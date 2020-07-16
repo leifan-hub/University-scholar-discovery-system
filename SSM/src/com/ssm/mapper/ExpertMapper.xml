@@ -8,7 +8,7 @@
 <mapper namespace="com.ssm.mapper.ExpertMapper" >
 	
 	<select id="getExpertList" resultType="com.ssm.domain.Expert">
-		select * from expert
+		select * from expert order by pageview desc limit 10
 	</select>
 	
 	<select id="getExpertByName" parameterType="String" resultType="com.ssm.domain.Expert">
