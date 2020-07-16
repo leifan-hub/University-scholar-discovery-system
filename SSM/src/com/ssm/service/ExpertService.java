@@ -23,4 +23,5 @@ public interface ExpertService {
 	public int addExpert(Expert expert);
 	public int delete(int userId);
 	public int update(Expert expert);
+	public int addpageview(int id);
 }

@@ -20,8 +20,9 @@
 
   <url-pattern>/assets/*"</url-pattern> 
 
-  <url-pattern>/images/*</url-pattern> 
-  
+  <url-pattern>/WordClouds/*</url-pattern> 
+  <url-pattern>/RoseCharts/*</url-pattern>
+  <url-pattern>/images/*</url-pattern>
   </servlet-mapping>
   
   <context-param>

@@ -51,5 +51,9 @@
 		update expert set name=#{name},school=#{school},major=#{major},subject=#{subject},paper=#{paper},research_direction=#{research_direction},introduction=#{introduction} where id=#{id}
 	</update>
 	
+	<update id="addpageview" parameterType="int">
+		update expert set pageview=pageview+1 where id=#{id}
+	</update>
+	
 	
 </mapper>

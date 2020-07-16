@@ -13,6 +13,7 @@ public class Expert {
  private String paper;
  private String research_direction;
  private String introduction;
+ private int pageview;
  public int getId() {
 	 return id;
  }
@@ -61,7 +62,11 @@ public class Expert {
  public void setIntroduction(String introduction) {
 	 this.introduction=introduction;
  }
- 
- 
+ public int getPageview() {
+	 return pageview;
+ }
+ public void setPageview(int pageview) {
+	 this.pageview=pageview;
+ }
  
 }

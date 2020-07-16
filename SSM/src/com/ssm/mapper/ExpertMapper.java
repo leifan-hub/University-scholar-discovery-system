@@ -24,4 +24,5 @@ public interface ExpertMapper {
 	public int addExpert(Expert expert);
 	public int delete(int id);
 	public int update(Expert expert);
+	public int addpageview(int id);
 }
