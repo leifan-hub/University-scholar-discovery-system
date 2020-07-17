@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		position: fixed;
 		width:100%;
 		text-align:center;
-		background:url(images/bg.jpg) 0 0 no-repeat #B0E0E6;
+		background:url(images/bg4.png) 0 0 no-repeat #B0E0E6;
 		background-size:cover;
 	}
 	.c{
@@ -87,6 +87,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    line-height:40px;
 	    text-align:center;
 	    margin-left:1px;
+	    border-top-left-radius:15px;
+    	border-top-right-radius:15px;
 	}
 	.nav li a:hover,.nav li a.on{
 	    background-color:#FF6600;
@@ -102,6 +104,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    border: 1px solid #ccc; 
 	    border-radius: 3px;
 	}
+	.loading{
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            margin: 0 auto;
+            position: relative;
+            background: lightgreen;
+            -webkit-animation: changeBgColor 6.4s ease-in infinite alternate;
+        }
+        .loading span{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: lightgreen;
+            position: absolute;
+            margin-top: -7px;
+            margin-left:10%;
+            -webkit-animation: changePosition 6.4s ease-in infinite alternate;
+        }
+        @-webkit-keyframes changeBgColor{
+            0%{
+                background: lightgreen;
+            }
+            100%{
+                background: lightblue;
+            }
+        }
+        @-webkit-keyframes changePosition{
+            0%{
+                background: lightgreen;
+            }
+            100%{
+                margin-left: 90%;
+                background: lightblue;
+            }
+        }
+
 	</style>
   </head>
   
@@ -114,19 +154,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <br>
     <br>
     <br>
-    <div class="nav" style="text-align:center;width:100%;background:#F8F8FF;background-size:cover;">
+    <div class="nav" style="text-align:center;width:100%;background:#EEEEEE;background-size:cover;">
         <ul>
-		<li style="margin-left:120px;"><a class="on" href="${pageContext.request.contextPath}"><font color="red" size="5"><b>首页</b></font></a></li>
-		<li><a href="expert/getExpertByName"><font color="red" size="5"><b>专家</b></font></a></li>
-		<li><a href="expert/getExpertBySchool"><font color="red" size="5"><b>高校</b></font></a></li>
-		<li><a href="expert/getExpertByMajor"><font color="red" size="5"><b>专业</b></font></a></li>
-		<li><a href="expert/getExpertBySubject"><font color="red" size="5"><b>学科</b></font></a></li>
-		<li><a href="expert/getExpertByPaper"><font color="red" size="5"><b>论文</b></font></a></li>
-		<li><a href="expert/getExpertByResearchDirection"><font color="red" size="5"><b>研究领域</b></font></a></li>
+		<li style="margin-left:120px;"><a class="on" href="${pageContext.request.contextPath}"><font color="#856363" size="5"><b>首页</b></font></a></li>
+		<li><a href="expert/getExpertByName"><font color="#856363" size="5"><b>专家</b></font></a></li>
+		<li><a href="expert/getExpertBySchool"><font color="#856363" size="5"><b>高校</b></font></a></li>
+		<li><a href="expert/getExpertByMajor"><font color="#856363" size="5"><b>专业</b></font></a></li>
+		<li><a href="expert/getExpertBySubject"><font color="#856363" size="5"><b>学科</b></font></a></li>
+		<li><a href="expert/getExpertByPaper"><font color="#856363" size="5"><b>论文</b></font></a></li>
+		<li><a href="expert/getExpertByResearchDirection"><font color="#856363" size="5"><b>研究领域</b></font></a></li>
 		<li style="margin-left:50px;">
 			<form action="expert/getExpertByName"  method="post" accept-charset="UTF-8" onsubmit="document.charset='UTF-8'">    
-		    <input type="text" name="name" style="width:200px; height:40px;" placeholder="请输入专家名"/> 
-		    <input type="submit" style="width:40px; height:40px;" value="搜索"/>  
+		    <input type="text" name="name" style="width:200px; height:40px;vertical-align: top;" placeholder="请输入专家名"/> 
+		    <input type="image" src="images/query1.jpg" style="width:40px; height:40px;"/>  
 		  	</form>
 		</li>
 	    </ul>   
@@ -135,8 +175,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 <br>
 <br>
- 	<c:forEach items="${expertList}" var="expert">
-  		<div class="expertDetail panel c">
+ 	<c:forEach  items="${expertList}" var="expert">
+  	 	<div class="loading">
+        <span></span>
+		</div>
+  		<div style="margin:0;" class="expertDetail panel c">
   		<br>
     		<div class="expertPicture">
     			<img src="images/logo.png" class="img-circle" height="150" width="150">
@@ -155,7 +198,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			</div>
 		</div>
-		<br>	
 	</c:forEach>
 
   </body>

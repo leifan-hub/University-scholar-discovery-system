@@ -7,6 +7,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>user.jsp</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 	.nav{
 		z-index:10;
@@ -34,6 +51,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    line-height:40px;
 	    text-align:center;
 	    margin-left:1px;
+	    border-top-left-radius:15px;
+    	border-top-right-radius:15px;
 	}
 	.nav li a:hover,.nav li a.on{
 	    background-color:#FF6600;
@@ -70,49 +89,69 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    border: 1px solid #ccc; 
 	    border-radius: 3px;
 	}
-
+	.loading{
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            margin: 0 auto;
+            position: relative;
+            background: lightgreen;
+            -webkit-animation: changeBgColor 6.4s ease-in infinite alternate;
+        }
+        .loading span{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: lightgreen;
+            position: absolute;
+            margin-top: -7px;
+            margin-left:10%;
+            -webkit-animation: changePosition 6.4s ease-in infinite alternate;
+        }
+        @-webkit-keyframes changeBgColor{
+            0%{
+                background: lightgreen;
+            }
+            100%{
+                background: lightblue;
+            }
+        }
+        @-webkit-keyframes changePosition{
+            0%{
+                background: lightgreen;
+            }
+            100%{
+                margin-left: 90%;
+                background: lightblue;
+            }
+        }
 </style>
 
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>user.jsp</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!-- 新 Bootstrap 核心 CSS 文件 -->
-	<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   
-  <body style="background:#FFFFF4">
+  <body style="background:url(images/bggif.gif); background-size: cover;">
     <div id="div1" style="width:100%;text-align:center;background:#F8F8FF;z-index:10;position: fixed;">
     <img id="image"src="images/query.jpg" width="100" height="100" style="vertical-align:middle" > 
-    <font style="FONT-FAMILY:华文行楷" size=6>按学科进行查询 </font>
+    <font style="FONT-FAMILY:华文行楷" size=8>按学科进行查询 </font>
   	</div>
     <br>
     <br>
     <br>
     <br>
-     <div class="nav" style="text-align:center;display:block;background:#F8F8FF;background-size:cover;">
+     <div class="nav" style="text-align:center;display:block;background:#EEEEEE;background-size:cover;">
        <ul>
-		<li style="margin-left:80px;"><a href="${pageContext.request.contextPath}"><font color="red" size="5"><b>首页</b></font></a></li>
-		<li><a href="expert/getExpertByName"><font color="red" size="5"><b>专家</b></font></a></li>
-		<li><a href="expert/getExpertBySchool"><font color="red" size="5"><b>高校</b></font></a></li>
-		<li><a href="expert/getExpertByMajor"><font color="red" size="5"><b>专业</b></font></a></li>
-		<li><a class="on" href="expert/getExpertBySubject"><font color="red" size="5"><b>学科</b></font></a></li>
-		<li><a href="expert/getExpertByPaper"><font color="red" size="5"><b>论文</b></font></a></li>
-		<li><a href="expert/getExpertByResearchDirection"><font color="red" size="5"><b>研究领域</b></font></a></li>
+		<li style="margin-left:80px;"><a href="${pageContext.request.contextPath}"><font color="#856363" size="5"><b>首页</b></font></a></li>
+		<li><a href="expert/getExpertByName"><font color="#856363" size="5"><b>专家</b></font></a></li>
+		<li><a href="expert/getExpertBySchool"><font color="#856363" size="5"><b>高校</b></font></a></li>
+		<li><a href="expert/getExpertByMajor"><font color="#856363" size="5"><b>专业</b></font></a></li>
+		<li><a class="on" href="expert/getExpertBySubject"><font color="#856363" size="5"><b>学科</b></font></a></li>
+		<li><a href="expert/getExpertByPaper"><font color="#856363" size="5"><b>论文</b></font></a></li>
+		<li><a href="expert/getExpertByResearchDirection"><font color="#856363" size="5"><b>研究领域</b></font></a></li>
 		<li style="margin-left:50px;">
 		<form action="expert/getExpertBySubject"  method="post" accept-charset="UTF-8" onsubmit="document.charset='UTF-8'">    
-	    <input type="text" name="subject" style="width:200px; height:40px;" placeholder="请输入专家学科"/> 
-	    <input type="submit" style="width:40px; height:40px;" value="搜索"/>  
+	    <input type="text" name="subject" style="width:200px; height:40px;vertical-align: top;" placeholder="请输入专家学科"/> 
+		<input type="image" src="images/query1.jpg" style="width:40px; height:40px;"/>  
 	  	</form>
 		</li>
     </ul>   
@@ -121,8 +160,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 <br>
 <br>
+
  	<c:forEach items="${expertList}" var="expert">
-  		<div class="expertDetail panel c">
+ 	<div class="loading">
+        <span></span>
+	</div>
+  		<div style="margin:0;"class="expertDetail panel c">
     		<div class="expertPicture">
     			<img src="images/logo.png" class="img-circle" height="150" width="150">
     		</div>
@@ -139,8 +182,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				${expert.introduction}
 			</div>
 			</div>
-		</div>
-		<br>	
+		</div>	
 	</c:forEach>
   </body>
 </html>
