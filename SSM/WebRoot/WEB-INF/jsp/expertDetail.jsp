@@ -28,18 +28,27 @@ String str_id=request.getParameter("id");
 		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<style type="text/css">
-			#expertDescription {
+			.expertDetail {
+				display: inline-block;
+                line-height:30px;
+                width:95%;
+                min-width:1125px;
+                text-align:center;
+		}
+		    #expertDescription {
 				display: inline-block;
 		    	line-height:30px;
-		    	width:800px;
+		    	width:85%;
+		    	
+		    	min-width:955px;
 		    	text-align:center;
-		    	float:top;
-		}
+		    	float:right;
+		    	}
 			.expertPicture {
 				display: inline-block;
 				vertical-align: middle;
 				position:relative;
-
+                float:left;
 				float:top;
 			}
 			#changePage{
@@ -47,16 +56,21 @@ String str_id=request.getParameter("id");
 		    	left:130px;
 			}
 			.expertArticle{
+				display: inline-block;
 				float:left;
-				width:900px;
+				width:70%;
+				min-width:800px;
 			}
 			.representative-works{
+				display: inline-block;
 				float:right;
-				width:350px;
+				width:25%;
+				min-width:250px;
 			}
 			.projects{
 				float:right;
-				width:350px;
+				width:25%;
+				min-width:250px;
 			}
 			.hot-tags{
 				float:right;
@@ -67,10 +81,22 @@ String str_id=request.getParameter("id");
 				width:350px;
 			}
 			a:link{color:#000000}
+			a:hover{text-decoration:none}
 			</style>
 	</head>
   
 	<body>
+  		<div class="d-head" >
+		    <div class="box70 h-90">
+		        <div class="fl logo">
+		             <img class="img fl" src="images/logo1.png">
+		        </div>
+		        <div class="fr d-return">
+		             <a class="b-return" href="expert/returnIndex">返回主页</a>
+		        </div>
+		    </div>
+		</div>
+		<div class="d-content">
   		<div class="expertDetail">
     		<div class="expertPicture">
     			<img src=${picUrl} class="img-circle" height="150" width="150">
@@ -89,8 +115,9 @@ String str_id=request.getParameter("id");
 				${expert.introduction}
 			</div>
 			</div>
-			<a href="expert/returnIndex"><font color="blue" size="5"><b>返回主页</b></font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 		</div>
+		</div>
+		<div class="d-area"> 
 		<div class="expertArticle">
 			<ul class="list-group">
     			<li class="list-group-item active">文章</li>
@@ -119,7 +146,7 @@ String str_id=request.getParameter("id");
         			<img src="RoseCharts/${expert.name}_rose.png" class="img-rounded" height="200" width="200">
     			</div>
 			</div>
-				<div class="projects">
+				
 					<div class="panel panel-default">
 	    				<div class="panel-heading">
 	        				<h3 class="panel-title">词云图</h3>
@@ -128,7 +155,7 @@ String str_id=request.getParameter("id");
 	        				<img src="WordClouds/${expert.name}.png" class="img-rounded" height="200" width="200">
 	    				</div>
 					</div>
-					<div class="hot-tags">
+					
 						<div class="panel panel-default">
 		    				<div class="panel-heading">
 		        				<h3 class="panel-title">热门标签</h3>
@@ -142,22 +169,20 @@ String str_id=request.getParameter("id");
 								</h4>
 		    				</div>
 						</div>
-						<div class="hot-scholars">
+						
 							<div class="panel panel-default">
 		    					<div class="panel-heading">
 		        					<h3 class="panel-title">同领域学者</h3>
-		    					</div>
-		    					<div class="panel-body">
-		    						<c:forEach items="${sameDomainPics}" var="sameDomainPic">   
+		    				    </div>
+		    				<div class="panel-body">
+		    				<c:forEach items="${sameDomainPics}" var="sameDomainPic">   
 			        					<img src=${sameDomainPic} class="img-rounded" height="200" width="200">
-			        				</c:forEach>
-		    					</div>
-							</div>
-						</div>
-					</div>
+			        		</c:forEach>
+		    			</div>
+					</div>							
 				</div>
-			</div>
-		<div style="float:left">
+			
+		<div class="d-same">
 		<div class="d-sty">
 		<h3 class="h-sty">同研究方向学者</h3>
 		</div>
@@ -180,7 +205,6 @@ String str_id=request.getParameter("id");
     	    </div> 	    
         </c:forEach>
     </div>
-		
-		
+	</div>	
 	</body>
 </html>
