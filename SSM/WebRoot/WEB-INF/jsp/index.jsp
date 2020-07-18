@@ -141,15 +141,97 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 background: lightblue;
             }
         }
-
+	html,body,p{margin:0;padding: 0}
+	.summary{
+	    position: relative;
+	    overflow: hidden;
+	    margin-bottom: 5px;
+	    line-height: 22px;
+	    word-break: break-all;
+	    text-indent:5em;
+	}
+	.packup p{
+	    height: 90px;
+	}
+	.packup:before{
+	    display: block;
+	    content: attr(data-content);
+	    position: absolute;
+	    z-index: 1;
+	    left: 0;
+	    top: 0;
+	    height: 66px;
+	    width: 100%;
+	    overflow: hidden;
+	    color: #000;
+	    background-color: #fff;
+	    text-indent: 5em;
+	       
+	}
+	.packup:after{
+	    display: -webkit-box;
+	    -webkit-box-orient: vertical;
+	    -webkit-box-sizing: border-box;
+	    box-sizing: border-box;
+	    -webkit-line-clamp: 4;
+	    content: attr(data-content);
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+	    text-indent: -4em;
+	    padding-right: 3em;
+	    color: #000;
+	    background-color: #fff;
+	}
+	@keyframes move
+	{
+	    0%
+	    {
+	        transform:translateY(0px);
+	    }
+		50%
+	    {
+	        transform:translateY(-58px);
+	    }
+	    100%
+	    {
+	        transform:translateY(0px);
+	    }
+	}
+	.picTab{height:25px; margin:20px auto;overflow:hidden;}
+	.picTab .topDiv{width:200px;height:10px; animation:move 8s linear infinite;text-align:center;}
+	.picTab div {margin:6px;color:black;  }		
+	footer{
+		bottom:0px;
+		height:79px;
+		border-top:1px solid #ddd;
+		width:100%;
+		background: #f7f7f7;
+	}
+	.sub-foot{width:1000px;margin:0 auto;text-align: center;}
+	.sub-foot ul{}
+	.sub-foot li{display:inline-block; height:30px;line-height:30px;margin-left:15px;}
+	.sub-foot p{height:30px;line-height: 30px;}
 	</style>
   </head>
   
   <body>
 	<div id="div1" class="b">
+	<div style="display:inline-block;margin-left:120px;">
     <img id="image"src="images/logo.png" width="100" height="100" style="vertical-align:middle;" > 
-    <font style="FONT-FAMILY:华文行楷" size=8>欢迎访问高校学者专家系统 </font>
+    <font style="FONT-FAMILY:华文行楷" size=8>欢迎访问高校学者专家系统 </font>	
+	</div>
+    <DIV class="picTab" style="display:inline-block;margin-left:120px;">
+	<div  class="topDiv">
+	<div>制作团队：zero</div>
+	<div>暑期实训作品</div>
+	<div>联系我们：QQ706346717</div>
+	</div>
+	</DIV>
     </div>
+
     <br>
     <br>
     <br>
@@ -167,6 +249,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     } );
     </script>
     <script>
+	function toUs()
+	{
+		alert("联系我们： \n雷凡：QQ706346717 \n李龙军：QQ185824626")
+	}
+	function aboutUs()
+	{
+		alert("zero团队 \n成员：雷凡 胡志豪 涂珈玮 李龙军 叶茂盛 \n指导老师：孙老师 赵老师 刘老师")
+	}
+	function aboutThis()
+	{
+		alert("本项目为zero团队暑期实训项目，由于技术不强、时间不足，项目依旧存在一些问题，请多多包涵，我们也欢迎您向我们提出您宝贵的建议。")
+	}
    
     function getJson(){
         $.ajax({
@@ -335,11 +429,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expert.research_direction}">${expert.research_direction}</a></span>
 				</div>
 			<div class="panel-body">
-				${expert.introduction}
+				    <details>
+ 			        <summary style="margin-left:-900px;outline:none;"><font color="#4B0082" size="4">详情</font></summary>
+			            <p>${expert.introduction}</p>
+    				</details>
 			</div>
 			</div>
 		</div>
 	</c:forEach>
-
+	<div>
+	<footer class="footer">
+			<div class="sub-foot">
+				<ul>
+					<li><a onclick="aboutUs()"><font size="2.5px">关于我们</font></a></li>
+					<li><svg width="16" height="16" style="vertical-align:middle;"
+					 		 xmlns="http://www.w3.org/2000/svg">
+					 		<path d="M2.167 2h11.666C14.478 2 15 2.576 15 3.286v9.428c0 .71-.522 1.286-1.167 1.286H2.167C1.522 14 1 13.424 1 12.714V3.286C1 2.576 1.522 2 2.167 2zm-.164 3v1L8 10l6-4V5L8 9 2.003 5z" fill="#999AAA" fill-rule="evenodd"></path>
+					 	</svg>
+					 	<a href="mailto:706346717@qq.com"><font size="2.5px">706346717@qq.com</font></a>
+					 	</li>
+					<li><a onclick="toUs()"><font size="2.5px">联系我们</font></a></li>
+					<li><a onclick="aboutThis()"><font size="2.5px">常见问题</font></a></li>
+				</ul>
+				<p>版权所有@2020zero团队</p>
+			</div>
+		</footer>
+	</div>
   </body>
 </html>
