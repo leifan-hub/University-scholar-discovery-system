@@ -38,6 +38,10 @@
 		select * from expert where id=#{id}
 	</select>
 	
+	<select id="countnums" parameterType="int" resultType="com.ssm.domain.Countclass">
+		select school as name,count(id) as num from expert group by school
+	</select>
+	
 	<insert id="addExpert" parameterType="Expert">
 		insert into expert(name,school,major,subject,paper,research_direction,introduction) values (#{name},#{school},#{major},#{subject},#{paper},#{research_direction},#{introduction})
 	</insert>
@@ -54,6 +58,8 @@
 	<update id="addpageview" parameterType="int">
 		update expert set pageview=pageview+1 where id=#{id}
 	</update>
-	
-	
+	<select id="getExpertPicByName" parameterType="String"
+		resultType="String">select picurl from picinfo where name=#{name}</select>
+
+
 </mapper>

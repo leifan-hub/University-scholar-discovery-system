@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+	<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 	<style type="text/css">
 	*{
  		padding:0px;
@@ -154,6 +154,144 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <br>
     <br>
     <br>
+    
+    
+    
+     <script>
+    $().ready( function() {
+    	 
+        // do something
+    
+    getJson();
+        
+    } );
+    </script>
+    <script>
+   
+    function getJson(){
+        $.ajax({
+            type:"get",
+            dataType:"json",
+            url:"expert/getJson",
+            success:function(data){
+           // 	confirm("123");
+            //	var list=${countnums}
+            //	confirm(list);
+            	datas=JSON.stringify(data)
+           // 	confirm(datas);
+            	
+            	
+				var bardata = [];
+            	var names= [] ;
+            
+            	
+            	for(var j=0;j<data.length;j++){    //遍历data数组
+            							var ls = data[j];     
+                	                       var m={};
+                    m["value"]=ls.num;
+                    m["name"]=ls.name;
+
+                    bardata.push(m);
+                	names.push(ls.name);                 
+                          
+                	                    }
+            	
+            	var myEchart = echarts.init(document.querySelector('#main'));
+            	myEchart.setOption({
+                        //设置
+                        title:{
+                            text:'高校专家数量分布',
+                            subtext:'',
+                            x:'center'
+                        },
+                        tooltip:{
+                            trigger:'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        },
+                        //对图例组件的不同系列进行标记说明
+                        legend:{
+                            orient:'vertical',  //设置图例列表的布局朝向
+                            left:'left',
+                            data:names
+                           
+                        },
+                        
+                        toolbox: {  
+                            show : true,  
+                            feature : {  
+                                mark : {show: true},  
+                                dataView : {show: true, readOnly: false},  
+                                magicType : {  
+                                    show: true,   
+                                    type: ['pie', 'funnel'],  
+                                    option: {  
+                                        funnel: {  
+                                            x: '25%',  
+                                            width: '50%',  
+                                            funnelAlign: 'left',  
+                                            max: 1548  
+                                        }  
+                                    }  
+                                },  
+                                restore : {show: true},  
+                                saveAsImage : {show: true}  
+                            }  
+                        },  
+                        calculable : true,  
+                        //系列列表
+                        series:[
+                            //系列1
+                            {
+                                name:'高校专家数量分布',
+                                type:'pie',    //数据统计图的类型
+                                
+                                radius : '55%',//饼图的半径大小  
+                        		center: ['50%', '60%'],//饼图的位置  
+                         	    data:bardata//放置要展示的数据
+                            }
+                        ]
+                    });
+    
+            	
+            	
+           //	 var names = [];
+            	
+            	
+            	
+            	
+            	
+            	
+            	                
+            	
+            	
+				
+            	            
+            	  				
+            	
+        //   	myEchart.setOption(option);        //加载数据图表                
+			//		 legend: {                    
+		    //                data: names
+		    //            },
+           //        series: [{                    
+           //            data: brower
+          //         }]
+         //      });
+            },
+     　　　　error:function(e){
+    	 confirm("error");
+    　　　　　　alert(e);
+    　　    }
+        })
+    }
+    
+    
+    </script>
+    
+    
+  
+
+
+
     <div class="nav" style="text-align:center;width:100%;background:#EEEEEE;background-size:cover;">
         <ul>
 		<li style="margin-left:120px;"><a class="on" href="${pageContext.request.contextPath}"><font color="#856363" size="5"><b>首页</b></font></a></li>
@@ -172,6 +310,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    </ul>   
     </div>
 <br>
+<br>
+<br>
+<div id="main" style="width:100%;height:500px"></div>
 <br>
 <br>
 <br>

@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ssm.domain.Countclass;
 import com.ssm.domain.Expert;
 import com.ssm.service.ExpertService;
 /**
@@ -30,6 +32,23 @@ public class ExpertController {
 //		model.setViewName("expertDetail");
 //		return model;
 //	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/getJson")
+	public List<Countclass> getJson(ModelAndView model) {
+		System.out.println("º¯ÊýÖ´ÐÐ");
+		List<Countclass> countnums = expertService.countnums();
+		for(Countclass n:countnums) {
+			System.out.println(n.getName());
+			System.out.println(n.getNum());
+		}
+		model.addObject("countnums", countnums);
+		
+		return countnums;
+	}
+	
+	
 	
 	@RequestMapping("/returnIndex")
 	public ModelAndView returnIndex() {

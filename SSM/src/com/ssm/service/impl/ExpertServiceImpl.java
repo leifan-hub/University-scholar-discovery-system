@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ssm.domain.Countclass;
 import com.ssm.domain.Expert;
 import com.ssm.mapper.ExpertMapper;
 import com.ssm.service.ExpertService;
@@ -20,6 +21,10 @@ public class ExpertServiceImpl implements ExpertService {
 
 	
 	@Override
+	public List<Countclass> countnums(){
+		
+		return expertMapper.countnums();
+	}
 	public List<Expert> getExpertList() {		
 		return expertMapper.getExpertList();
 	}

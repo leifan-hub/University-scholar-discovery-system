@@ -8,9 +8,11 @@ import java.util.List;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ssm.domain.Countclass;
 import com.ssm.domain.Expert;
 
 public interface ExpertService {
+	public List<Countclass> countnums();
 	public List<Expert> getExpertList();
 	public List<Expert> getExpertByName(String name);
 	public List<Expert> getExpertBySchool(String school);
