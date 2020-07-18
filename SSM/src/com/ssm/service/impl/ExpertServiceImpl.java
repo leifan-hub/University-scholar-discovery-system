@@ -51,25 +51,12 @@ public class ExpertServiceImpl implements ExpertService {
 	}
 	public Expert getExpertById(int id) {
 		return expertMapper.getExpertById(id);		
-	}
-	public int addExpert(Expert expert) {
-		
-		return expertMapper.addExpert(expert);
-	}
-	
-    public int update(Expert expert) {
-				
-    	return  expertMapper.update(expert);
-	}
-	
+	}	
     public int addpageview(int id) {
 		
     	return  expertMapper.addpageview(id);
 	}
     
-	public int delete(int id) {
-		return expertMapper.delete(id);
-	}
 	@Override
 	public String getExpertPicByName(String name) {
 		

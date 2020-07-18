@@ -22,9 +22,6 @@ public interface ExpertService {
 	public List<Expert> getExpertByResearch(String research_direction);
 	public List<Expert> getExpertByIntroduction(String introduction);
 	public Expert getExpertById(int id);
-	public int addExpert(Expert expert);
-	public int delete(int userId);
-	public int update(Expert expert);
 	public int addpageview(int id);
 	public String getExpertPicByName(String name);
 }
