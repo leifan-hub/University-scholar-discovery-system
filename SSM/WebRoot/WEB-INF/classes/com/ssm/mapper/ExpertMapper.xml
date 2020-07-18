@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <!-- 
- author：胡志豪 李龙军 
+ author：胡志豪 李龙军 雷凡
  create: time: 2020-07-05
- update：time:  2020-07-12
+ update：time:  2020-07-18
  -->
 <mapper namespace="com.ssm.mapper.ExpertMapper" >
 	
@@ -12,25 +12,30 @@
 	</select>
 	
 	<select id="getExpertByName" parameterType="String" resultType="com.ssm.domain.Expert">
-<!-- 		select * from expert where name=#{name} -->
 		select * from expert where name like CONCAT('%',#{name},'%')
 	</select>
+	
 	<select id="getExpertBySchool" parameterType="String" resultType="com.ssm.domain.Expert">
 		select * from expert where school like CONCAT('%',#{school},'%')
 	</select>
-		<select id="getExpertByMajor" parameterType="String" resultType="com.ssm.domain.Expert">
+	
+	<select id="getExpertByMajor" parameterType="String" resultType="com.ssm.domain.Expert">
 		select * from expert where major like CONCAT('%',#{major},'%')
 	</select>
-		<select id="getExpertBySubject" parameterType="String" resultType="com.ssm.domain.Expert">
+	
+	<select id="getExpertBySubject" parameterType="String" resultType="com.ssm.domain.Expert">
 		select * from expert where subject like CONCAT('%',#{subject},'%')
 	</select>
-		<select id="getExpertByPaper" parameterType="String" resultType="com.ssm.domain.Expert">
+	
+	<select id="getExpertByPaper" parameterType="String" resultType="com.ssm.domain.Expert">
 		select * from expert where paper like CONCAT('%',#{paper},'%')
 	</select>
-		<select id="getExpertByResearch" parameterType="String" resultType="com.ssm.domain.Expert">
+	
+	<select id="getExpertByResearch" parameterType="String" resultType="com.ssm.domain.Expert">
 		select * from expert where research_direction like CONCAT('%',#{research_direction},'%')
 	</select>
-		<select id="getExpertByIntroduction" parameterType="String" resultType="com.ssm.domain.Expert">
+	
+	<select id="getExpertByIntroduction" parameterType="String" resultType="com.ssm.domain.Expert">
 		select * from expert where introduction like CONCAT('%',#{introduction},'%')
 	</select>
 	
@@ -42,24 +47,10 @@
 		select school as name,count(id) as num from expert group by school
 	</select>
 	
-	<insert id="addExpert" parameterType="Expert">
-		insert into expert(name,school,major,subject,paper,research_direction,introduction) values (#{name},#{school},#{major},#{subject},#{paper},#{research_direction},#{introduction})
-	</insert>
-	
-	<delete id="delete" parameterType="int">
-		delete from expert where id=#{id}
-	</delete>
-	
-	
-	<update id="update" parameterType="Expert">
-		update expert set name=#{name},school=#{school},major=#{major},subject=#{subject},paper=#{paper},research_direction=#{research_direction},introduction=#{introduction} where id=#{id}
-	</update>
-	
-	<update id="addpageview" parameterType="int">
-		update expert set pageview=pageview+1 where id=#{id}
-	</update>
 	<select id="getExpertPicByName" parameterType="String"
-		resultType="String">select picurl from picinfo where name=#{name}</select>
-
-
+		resultType="String">select picurl from picinfo where name=#{name}
+	</select>
+	<select id="getExpertTagByName" parameterType="String"
+		resultType="String">select tag from tag where name=#{name}</select>
+	<update id="addpageview" parameterType="int">update expert set pageview=pageview+1 where id=#{id}</update>
 </mapper>

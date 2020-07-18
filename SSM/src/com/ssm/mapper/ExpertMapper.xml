@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <!-- 
- author：胡志豪 李龙军 
+ author：胡志豪 李龙军 雷凡
  create: time: 2020-07-05
- update：time:  2020-07-12
+ update：time:  2020-07-18
  -->
 <mapper namespace="com.ssm.mapper.ExpertMapper" >
 	
@@ -50,4 +50,7 @@
 	<select id="getExpertPicByName" parameterType="String"
 		resultType="String">select picurl from picinfo where name=#{name}
 	</select>
+	<select id="getExpertTagByName" parameterType="String"
+		resultType="String">select tag from tag where name=#{name}</select>
+	<update id="addpageview" parameterType="int">update expert set pageview=pageview+1 where id=#{id}</update>
 </mapper>

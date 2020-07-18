@@ -233,34 +233,34 @@ public class ExpertController {
 		Expert expert =expertService.getExpertById(id);
 		expertService.addpageview(id);
 		List<String>expertPapers=new ArrayList<String>();
-		List<String>expertDirections=new ArrayList<String>();
+		List<String>expertTags=new ArrayList<String>();
 		List<String>sameDomainPics=new ArrayList<String>();
-		String picUrl =expertService.getExpertPicByName(expert.getName());
+		List<Expert> expertRelated =new ArrayList<Expert>();
 		
+		String picUrl =expertService.getExpertPicByName(expert.getName());
 		String[] expertPapers_string=expert.getPaper().split("#");
 		for (String expertPaper : expertPapers_string) {
 			expertPapers.add(expertPaper);
 		}
 		
-		String[] expertDirections_string=expert.getResearch_direction().split(",|¡£|¡¢");
-		for (String expertDirection : expertDirections_string) {
-			expertDirections.add(expertDirection);
+		String[] expertTags_string=expertService.getExpertTagByName(expert.getName()).split("#");
+		for (String expertTag : expertTags_string) {
+			expertTags.add(expertTag);
 		}
-		String Research=expert.getResearch_direction();
-		List<Expert> expertrelated =expertService.getExpertByResearch(Research);
-		for(int i=0;i<expertrelated.size();i++) {
-			if(expertrelated.get(i).getId()==expert.getId()) {
-				expertrelated.remove(i);
-			}
-			else {
-				sameDomainPics.add(expertService.getExpertPicByName(expertrelated.get(i).getName()));
+		List<Expert> experts =expertService.getExpertList();
+		for(Expert expertTemp : experts) {
+			double result=expertService.getSimilarity(expertService.getExpertTagByName(expertTemp.getName()),expertService.getExpertTagByName(expert.getName()));
+			if(result>0.67&&!(expertTemp.getName().equals(expert.getName()))) {
+				expertTemp.setMajor(expertService.getExpertPicByName(expertTemp.getName()));
+				System.out.println(expertTemp.getName());
+				expertRelated.add(expertTemp);
 			}
 		}
 		ModelAndView model = new ModelAndView();
 		model.addObject("expert", expert);
-		model.addObject("expertrelatedList", expertrelated);
+		model.addObject("expertRelated", expertRelated);
 		model.addObject("expertPapers", expertPapers);
-		model.addObject("expertDirections", expertDirections);
+		model.addObject("expertTags", expertTags);
 		model.addObject("picUrl", picUrl);
 		model.addObject("sameDomainPics", sameDomainPics);
 		model.setViewName("expertDetail");
