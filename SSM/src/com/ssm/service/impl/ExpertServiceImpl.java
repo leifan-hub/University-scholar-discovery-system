@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ssm.domain.Countclass;
 import com.ssm.domain.Expert;
 import com.ssm.mapper.ExpertMapper;
 import com.ssm.service.ExpertService;
@@ -20,6 +21,10 @@ public class ExpertServiceImpl implements ExpertService {
 
 	
 	@Override
+	public List<Countclass> countnums(){
+		
+		return expertMapper.countnums();
+	}
 	public List<Expert> getExpertList() {		
 		return expertMapper.getExpertList();
 	}
@@ -46,19 +51,16 @@ public class ExpertServiceImpl implements ExpertService {
 	}
 	public Expert getExpertById(int id) {
 		return expertMapper.getExpertById(id);		
-	}
-	public int addExpert(Expert expert) {
+	}	
+    public int addpageview(int id) {
 		
-		return expertMapper.addExpert(expert);
+    	return  expertMapper.addpageview(id);
 	}
-	
-    public int update(Expert expert) {
-				
-    	return  expertMapper.update(expert);
-	}
-	
-	public int delete(int id) {
-		return expertMapper.delete(id);
+    
+	@Override
+	public String getExpertPicByName(String name) {
+		
+		return expertMapper.getExpertPicByName(name);
 	}
 
 	

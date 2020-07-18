@@ -8,7 +8,7 @@
 <mapper namespace="com.ssm.mapper.ExpertMapper" >
 	
 	<select id="getExpertList" resultType="com.ssm.domain.Expert">
-		select * from expert
+		select * from expert order by pageview desc limit 10
 	</select>
 	
 	<select id="getExpertByName" parameterType="String" resultType="com.ssm.domain.Expert">
@@ -38,6 +38,10 @@
 		select * from expert where id=#{id}
 	</select>
 	
+	<select id="countnums" parameterType="int" resultType="com.ssm.domain.Countclass">
+		select school as name,count(id) as num from expert group by school
+	</select>
+	
 	<insert id="addExpert" parameterType="Expert">
 		insert into expert(name,school,major,subject,paper,research_direction,introduction) values (#{name},#{school},#{major},#{subject},#{paper},#{research_direction},#{introduction})
 	</insert>
@@ -51,5 +55,11 @@
 		update expert set name=#{name},school=#{school},major=#{major},subject=#{subject},paper=#{paper},research_direction=#{research_direction},introduction=#{introduction} where id=#{id}
 	</update>
 	
-	
+	<update id="addpageview" parameterType="int">
+		update expert set pageview=pageview+1 where id=#{id}
+	</update>
+	<select id="getExpertPicByName" parameterType="String"
+		resultType="String">select picurl from picinfo where name=#{name}</select>
+
+
 </mapper>
