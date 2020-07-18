@@ -1,8 +1,8 @@
 package com.ssm.mapper;
 /**
-* author：胡志豪 李龙军 
+* author：胡志豪 李龙军 雷凡
 * create: time: 2020-07-05
-* update：time:  2020-07-12
+* update：time:  2020-07-18
 */
 import java.util.List;
 
@@ -25,4 +25,5 @@ public interface ExpertMapper {
 	public Expert getExpertById(int id);
 	public int addpageview(int id);
 	public String getExpertPicByName(String name);
+	public String getExpertTagByName(String name);
 }
