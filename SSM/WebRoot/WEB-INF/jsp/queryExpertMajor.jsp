@@ -179,7 +179,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expert.research_direction}">${expert.research_direction}</a></span>
 				</div>
 			<div class="panel-body">
-				${expert.introduction}
+				    <details>
+ 			        <summary style="margin-left:-900px;outline:none;"><font color="#4B0082" size="4">详情</font></summary>
+			            <p>${expert.introduction}</p>
+    				</details>
 			</div>
 			</div>
 		</div>
