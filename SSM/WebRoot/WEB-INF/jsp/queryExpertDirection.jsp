@@ -160,13 +160,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 <br>
 <br>
- 	<c:forEach items="${expertList}" var="expert">
+ 	<c:forEach  items="${expertList}" var="expert" varStatus="loop">
   	 	<div class="loading">
         <span></span>
 		</div>
   		<div style="margin:0;" class="expertDetail panel c">
+  		<br>
     		<div class="expertPicture">
-    			<img src="images/logo.png" class="img-circle" height="150" width="150">
+    			<img src="${expertPic[loop.count-1]}" class="img-circle" height="150" width="150">
     		</div>
     		<br>
     		<div class="panel panel-primary" id="expertDescription">
@@ -175,16 +176,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="label label-warning"><a href="expert/getExpertBySchool?school=${expert.school}">${expert.school}</a></span>
 					<span class="label label-warning"><a href="expert/getExpertByMajor?major=${expert.major}">${expert.major}</a></span>
 					<span class="label label-warning"><a href="expert/getExpertBySubject?subject=${expert.subject}">${expert.subject}</a></span>
-					<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expert.research_direction}">${expert.research_direction}</a></span>
+					<c:forEach var="expertDirection" items="${expertR_D[loop.count-1]}" >
+        				<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expertDirection}">${expertDirection}</a></span>
+   					</c:forEach>
+<%-- 					<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expert.research_direction}">${expert.research_direction}</a></span>--%>				
 				</div>
-			<div class="panel-body">
+					<div class="panel-body">
 				    <details>
  			        <summary style="margin-left:-900px;outline:none;"><font color="#4B0082" size="4">详情</font></summary>
 			            <p>${expert.introduction}</p>
     				</details>
-			</div>
+					</div>
 			</div>
 		</div>
 	</c:forEach>
+
   </body>
 </html>
