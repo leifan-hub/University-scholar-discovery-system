@@ -50,6 +50,7 @@
 	<select id="getExpertPicByName" parameterType="String"
 		resultType="String">select picurl from picinfo where name=#{name}
 	</select>
+
 	<select id="getExpertTagByName" parameterType="String"
 		resultType="String">select tag from tag where name=#{name}</select>
 	<update id="addpageview" parameterType="int">update expert set pageview=pageview+1 where id=#{id}</update>

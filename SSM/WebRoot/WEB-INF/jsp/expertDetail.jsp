@@ -56,21 +56,21 @@ String str_id=request.getParameter("id");
 		    	left:130px;
 			}
 			.expertArticle{
-				display: inline-block;
+				
 				float:left;
 				width:70%;
 				min-width:800px;
 			}
 			.representative-works{
-				display: inline-block;
+				
 				float:right;
 				width:25%;
 				min-width:250px;
 			}
-			.projects{
-				float:right;
-				width:25%;
-				min-width:250px;
+			.pro{
+				float:left;
+				width:35%;
+				min-width:400px;
 			}
 			.hot-tags{
 				float:right;
@@ -78,12 +78,13 @@ String str_id=request.getParameter("id");
 			}
 			.hot-scholars{
 				float:right;
-				width:350px;
+				width:400px;
 			}
-			.img-200{
-			    width:200px;
-			    height:200px;
+			.img-300{
+			    width:300px;
+			    height:300px;
 			}
+			
 			a:link{color:#000000}
 			a:hover{text-decoration:none}
 			</style>
@@ -141,18 +142,19 @@ String str_id=request.getParameter("id");
 					</ul>
     			</li>
 			</ul>			
-		</div>
+		</div>      
 		<div class="representative-works">
-			<div class="panel panel-default">
+		  
+			<div class="panel panel-default ">
     			<div class="panel-heading">
-        			<h3 class="panel-title">玫瑰图</h3>
+        			<h3 class="panel-title">研究方向</h3>
     			</div>
     			<div class="panel-body">
-        			<img src="RoseCharts/${expert.name}_rose.png" class="img-rounded img-200" >
+    				${expert.research_direction}   
     			</div>
-			</div>
-				
-					<div class="panel panel-default">
+			</div>    
+				<!--
+					<div class="panel panel-default ">
 	    				<div class="panel-heading">
 	        				<h3 class="panel-title">词云图</h3>
 	    				</div>
@@ -160,7 +162,7 @@ String str_id=request.getParameter("id");
 	        				<img src="WordClouds/${expert.name}.png" class="img-rounded img-200" >
 	    				</div>
 					</div>
-					
+					-->
 						<div class="panel panel-default">
 		    				<div class="panel-heading">
 		        				<h3 class="panel-title">热门标签</h3>
@@ -188,6 +190,26 @@ String str_id=request.getParameter("id");
 							</div>
 															
 			</div>
+			<div class="pro">
+			<div class="panel panel-default ">
+    			<div class="panel-heading ">
+        			<h3 class="panel-title ">玫瑰图</h3>
+    			</div>
+    			<div class="panel-body">
+        			<img src="RoseCharts/${expert.name}_rose.png" class="img-rounded img-300" >
+    			</div>
+			</div>
+			</div>
+				<div class="pro">
+					<div class="panel panel-default ">
+	    				<div class="panel-heading">
+	        				<h3 class="panel-title">词云图</h3>
+	    				</div>
+	    				<div class="panel-body">
+	        				<img src="WordClouds/${expert.name}.png" class="img-rounded img-300" >
+	    				</div>
+					</div>
+					</div>
 			</div>
 		<!--
 		<div style="float:left">
