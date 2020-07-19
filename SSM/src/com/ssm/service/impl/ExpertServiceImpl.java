@@ -127,7 +127,7 @@ public class ExpertServiceImpl implements ExpertService {
 
 	            return denominator / Math.sqrt(sqdoc1*sqdoc2);//”‡œ“º∆À„
 	        } else {
-	            throw new NullPointerException(" the Document is null or have not cahrs!!");
+	        	return 0;
 	        }
 	}
 	

@@ -234,9 +234,9 @@ public class ExpertController {
 		expertService.addpageview(id);
 		List<String>expertPapers=new ArrayList<String>();
 		List<String>expertTags=new ArrayList<String>();
-		List<String>sameDomainPics=new ArrayList<String>();
 		List<Expert> expertRelated =new ArrayList<Expert>();
 		
+		//System.out.println(expert.getName());
 		String picUrl =expertService.getExpertPicByName(expert.getName());
 		String[] expertPapers_string=expert.getPaper().split("#");
 		for (String expertPaper : expertPapers_string) {
@@ -248,9 +248,11 @@ public class ExpertController {
 			expertTags.add(expertTag);
 		}
 		List<Expert> experts =expertService.getExpertList();
-		for(Expert expertTemp : experts) {
+		for(Expert expertTemp : experts) {   
+			System.out.println(expertService.getExpertTagByName(expertTemp.getName()));
+			System.out.println(expertService.getExpertTagByName(expert.getName()));
 			double result=expertService.getSimilarity(expertService.getExpertTagByName(expertTemp.getName()),expertService.getExpertTagByName(expert.getName()));
-			if(result>0.67&&!(expertTemp.getName().equals(expert.getName()))) {
+			if(result>0.35&&!(expertTemp.getName().equals(expert.getName()))) {
 				expertTemp.setMajor(expertService.getExpertPicByName(expertTemp.getName()));;
 				expertRelated.add(expertTemp);
 			}
@@ -261,7 +263,6 @@ public class ExpertController {
 		model.addObject("expertPapers", expertPapers);
 		model.addObject("expertTags", expertTags);
 		model.addObject("picUrl", picUrl);
-		model.addObject("sameDomainPics", sameDomainPics);
 		model.setViewName("expertDetail");
 		return model;
 	}	
