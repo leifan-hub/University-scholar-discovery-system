@@ -142,7 +142,7 @@ String str_id=request.getParameter("id");
 					</ul>
     			</li>
 			</ul>			
-		</div>
+		</div>      
 		<div class="representative-works">
 		  
 			<div class="panel panel-default ">

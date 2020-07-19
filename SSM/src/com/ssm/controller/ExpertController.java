@@ -256,7 +256,7 @@ public class ExpertController {
 				expertTemp.setMajor(expertService.getExpertPicByName(expertTemp.getName()));;
 				expertRelated.add(expertTemp);
 			}
-		}
+		}     
 		ModelAndView model = new ModelAndView();
 		model.addObject("expert", expert);
 		model.addObject("expertRelated", expertRelated);
