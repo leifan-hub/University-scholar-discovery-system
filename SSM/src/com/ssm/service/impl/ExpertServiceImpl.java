@@ -127,7 +127,7 @@ public class ExpertServiceImpl implements ExpertService {
 
 	            return denominator / Math.sqrt(sqdoc1*sqdoc2);//”‡œ“º∆À„
 	        } else {
-	        	return 0;
+	        	return 0;     
 	        }
 	}
 	

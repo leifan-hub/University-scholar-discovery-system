@@ -249,8 +249,6 @@ public class ExpertController {
 		}
 		List<Expert> experts =expertService.getExpertList();
 		for(Expert expertTemp : experts) {   
-			System.out.println(expertService.getExpertTagByName(expertTemp.getName()));
-			System.out.println(expertService.getExpertTagByName(expert.getName()));
 			double result=expertService.getSimilarity(expertService.getExpertTagByName(expertTemp.getName()),expertService.getExpertTagByName(expert.getName()));
 			if(result>0.35&&!(expertTemp.getName().equals(expert.getName()))) {
 				expertTemp.setMajor(expertService.getExpertPicByName(expertTemp.getName()));;

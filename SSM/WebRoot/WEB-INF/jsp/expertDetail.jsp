@@ -152,7 +152,7 @@ String str_id=request.getParameter("id");
     			<div class="panel-body">
     				${expert.research_direction}   
     			</div>
-			</div>
+			</div>    
 				<!--
 					<div class="panel panel-default ">
 	    				<div class="panel-heading">
