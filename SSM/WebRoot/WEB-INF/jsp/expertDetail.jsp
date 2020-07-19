@@ -80,13 +80,17 @@ String str_id=request.getParameter("id");
 				float:right;
 				width:350px;
 			}
+			.img-200{
+			    width:200px;
+			    height:200px;
+			}
 			a:link{color:#000000}
 			a:hover{text-decoration:none}
 			</style>
 	</head>
   
 	<body>
-  		<div class="d-head" >
+	    <div class="d-head" >
 		    <div class="box70 h-90">
 		        <div class="fl logo">
 		             <img class="img fl" src="images/logo1.png">
@@ -103,21 +107,22 @@ String str_id=request.getParameter("id");
     		</div>
     		<div class="panel panel-primary" id="expertDescription">
 				<div class="panel-heading">
-					<h3 class="panel-title">${expert.name}</h3>
-					<span class="label label-warning"><a>${expert.school}</a></span>
-					<span class="label label-warning"><a>${expert.major}</a></span>
-					<span class="label label-warning"><a>${expert.subject}</a></span>
-					<c:forEach var="expertDirection" items="${expertDirections}" >
-        				<span class="label label-warning"><a>${expertDirection}</a></span>
+				    <div class="m-b7">
+					<h3 class=" panel-title ">${expert.name}</h3>
+					</div>
+					<span class="label label-warning"><a href="expert/getExpertBySchool?school=${expert.school}">${expert.school}</a></span>
+					<c:forEach var="expertTag" items="${expertTags}" >
+        				<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expertTag}">${expertTag}</a></span>
    					</c:forEach>
 				</div>
 			<div class="panel-body">
 				${expert.introduction}
 			</div>
 			</div>
+			</div>
+			
 		</div>
-		</div>
-		<div class="d-area"> 
+		<div class="d-area">
 		<div class="expertArticle">
 			<ul class="list-group">
     			<li class="list-group-item active">文章</li>
@@ -143,7 +148,7 @@ String str_id=request.getParameter("id");
         			<h3 class="panel-title">玫瑰图</h3>
     			</div>
     			<div class="panel-body">
-        			<img src="RoseCharts/${expert.name}_rose.png" class="img-rounded" height="200" width="200">
+        			<img src="RoseCharts/${expert.name}_rose.png" class="img-rounded img-200" >
     			</div>
 			</div>
 				
@@ -152,7 +157,7 @@ String str_id=request.getParameter("id");
 	        				<h3 class="panel-title">词云图</h3>
 	    				</div>
 	    				<div class="panel-body">
-	        				<img src="WordClouds/${expert.name}.png" class="img-rounded" height="200" width="200">
+	        				<img src="WordClouds/${expert.name}.png" class="img-rounded img-200" >
 	    				</div>
 					</div>
 					
@@ -173,16 +178,19 @@ String str_id=request.getParameter("id");
 							<div class="panel panel-default">
 		    					<div class="panel-heading">
 		        					<h3 class="panel-title">同领域学者</h3>
-		    				    </div>
-		    				<div class="panel-body">
-		    				<c:forEach items="${sameDomainPics}" var="sameDomainPic">   
-			        					<img src=${sameDomainPic} class="img-rounded" height="200" width="200">
-			        		</c:forEach>
-		    			</div>
-					</div>							
-				</div>
-			
-		<div class="d-same">
+		    					</div>
+		    					<div class="panel-body">
+		    						<c:forEach items="${expertRelated}" var="expertR">   
+			        					<a href="expert/getExpertById?id=${expertR.id}"><img src=${expertR.major} class="img-rounded" height="200" width="200"></a>
+			        					<h3><a href="expert/getExpertById?id=${expertR.id}">${expertR.name}</a></h3>
+			        				</c:forEach>
+		    					</div>
+							</div>
+															
+			</div>
+			</div>
+		<!--
+		<div style="float:left">
 		<div class="d-sty">
 		<h3 class="h-sty">同研究方向学者</h3>
 		</div>
@@ -205,6 +213,7 @@ String str_id=request.getParameter("id");
     	    </div> 	    
         </c:forEach>
     </div>
-	</div>	
+		-->
+		
 	</body>
 </html>
