@@ -1,5 +1,9 @@
 package com.ssm.domain;
-
+/**
+* author£ººúÖ¾ºÀ 
+* create: time: 2020-07-05
+* update£ºtime:  2020-07-12
+*/
 public class Expert {
  private int id;
  private String name;
@@ -9,6 +13,7 @@ public class Expert {
  private String paper;
  private String research_direction;
  private String introduction;
+ private int pageview;
  public int getId() {
 	 return id;
  }
@@ -57,7 +62,11 @@ public class Expert {
  public void setIntroduction(String introduction) {
 	 this.introduction=introduction;
  }
- 
- 
+ public int getPageview() {
+	 return pageview;
+ }
+ public void setPageview(int pageview) {
+	 this.pageview=pageview;
+ }
  
 }

@@ -10,7 +10,20 @@
   	<param-value>classpath:spring/application*.xml</param-value>
   </context-param>
   
-  
+  <servlet-mapping> 
+
+  <servlet-name>default</servlet-name> 
+
+  <url-pattern>*.js</url-pattern> 
+
+  <url-pattern>*.css</url-pattern> 
+
+  <url-pattern>/assets/*"</url-pattern> 
+
+  <url-pattern>/WordClouds/*</url-pattern> 
+  <url-pattern>/RoseCharts/*</url-pattern>
+  <url-pattern>/images/*</url-pattern>
+  </servlet-mapping>
   
   <context-param>
 		<param-name>spring.profiles.active</param-name>

@@ -15,7 +15,9 @@
 	
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
-	 
+	<mvc:default-servlet-handler/>
+	
+	
 	<!-- 自动扫描 -->
 	<context:component-scan base-package = "com.ssm.controller"></context:component-scan>
 	<!-- 视图解析器 -->
@@ -23,4 +25,34 @@
 		<property name = "prefix" value = "/WEB-INF/jsp/"/>
 		<property name = "suffix" value = ".jsp"/>
 	</bean>
+	
+	
+	<!--处理 @ResponseBody 中文乱码问题-->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>
+								text/html;charset=UTF-8
+							</value>
+						</list>
+					</property>
+				</bean>
+				<!-- 启动JSON格式的配置 -->
+				<bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+					<!-- 解决 HttpMediaTypeNotAcceptableException: Could not find acceptable representation -->
+					<property name="supportedMediaTypes">
+						<list>
+							<value>application/json;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
 </beans>
