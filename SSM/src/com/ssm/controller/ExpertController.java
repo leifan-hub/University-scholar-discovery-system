@@ -251,8 +251,7 @@ public class ExpertController {
 		for(Expert expertTemp : experts) {
 			double result=expertService.getSimilarity(expertService.getExpertTagByName(expertTemp.getName()),expertService.getExpertTagByName(expert.getName()));
 			if(result>0.67&&!(expertTemp.getName().equals(expert.getName()))) {
-				expertTemp.setMajor(expertService.getExpertPicByName(expertTemp.getName()));
-				System.out.println(expertTemp.getName());
+				expertTemp.setMajor(expertService.getExpertPicByName(expertTemp.getName()));;
 				expertRelated.add(expertTemp);
 			}
 		}
