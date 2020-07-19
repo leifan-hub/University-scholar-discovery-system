@@ -53,7 +53,6 @@
 
 	<select id="getExpertTagByName" parameterType="String"
 		resultType="String">select tag from tag where name=#{name}</select>
-	<update id="addpageview" parameterType="int">update expert set pageview=pageview+1 where id=#{id}</update>
 	
 	<update id="addpageview" parameterType="int">
 		update expert set pageview=pageview+1 where id=#{id} 
