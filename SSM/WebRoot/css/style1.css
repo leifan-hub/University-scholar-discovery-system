@@ -128,10 +128,14 @@ a:hover{
 
 .d-area{
 	display: inline-block;
+	width:97.5%;
 	min-width:1150px;
 }
 .d-same{
 	float:left;
 	width:70%;
 	min-width:800px;
+}
+.m-b7{
+	margin-bottom:7px;
 }
