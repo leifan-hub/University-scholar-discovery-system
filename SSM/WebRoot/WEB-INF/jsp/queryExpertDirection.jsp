@@ -130,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body style="background:url(images/bggif.gif); background-size: cover;">
+  <body style="background:url(images/456.gif); background-size: cover;">
     <div id="div1" style="background:#F8F8FF;width:100%;text-align:center;z-index:10;position: fixed;">
     <img id="image"src="images/query.jpg" width="100" height="100" style="vertical-align:middle" > 
     <font style="FONT-FAMILY:华文行楷" size=8>按研究方向进行查询 </font>
