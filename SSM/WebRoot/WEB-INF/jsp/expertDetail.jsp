@@ -85,11 +85,13 @@ String str_id=request.getParameter("id");
 			    width:300px;
 			    height:300px;
 			}
+
 			.bg-head{
 			background:url(images/headbg.png) 0 0 no-repeat;
             background-size: cover; 
 
  			}
+
 			
 			a:link{color:#000000}
 			a:hover{text-decoration:none}
@@ -197,23 +199,27 @@ String str_id=request.getParameter("id");
 															
 			</div>
 			<div class="pro">
+
 			<div class="panel panel-default " style='border-top-width:0'>
     			<div class="panel-heading " style='background:#337ab7;
     			     border-color:#337ab7;color:white;'>
         			<h3 class="panel-title ">玫瑰图</h3>
     			</div>
     			<div class="panel-body" >
+
         			<img src="RoseCharts/${expert.name}_rose.png" class="img-rounded img-300" >
     			</div>
 			</div>
 			</div>
 				<div class="pro">
+
 					<div class="panel panel-default " style='border-top-width:0'>
 	    				<div class="panel-heading " style='background:#337ab7;
 	    				     border-color:#337ab7;color:white; '>
 	        				<h3 class="panel-title">词云图</h3>
 	    				</div>
 	    				<div class="panel-body" >
+
 	        				<img src="WordClouds/${expert.name}.png" class="img-rounded img-300" >
 	    				</div>
 					</div>
