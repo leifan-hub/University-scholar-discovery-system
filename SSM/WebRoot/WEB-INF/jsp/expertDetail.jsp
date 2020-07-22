@@ -34,6 +34,7 @@ String str_id=request.getParameter("id");
                 width:95%;
                 min-width:1125px;
                 text-align:center;
+                margin-top:20px;
 		}
 		    #expertDescription {
 				display: inline-block;
@@ -84,6 +85,13 @@ String str_id=request.getParameter("id");
 			    width:300px;
 			    height:300px;
 			}
+
+			.bg-head{
+			background:url(images/headbg.png) 0 0 no-repeat;
+            background-size: cover; 
+
+ 			}
+
 			
 			a:link{color:#000000}
 			a:hover{text-decoration:none}
@@ -91,8 +99,8 @@ String str_id=request.getParameter("id");
 	</head>
   
 	<body>
-	    <div class="d-head" >
-		    <div class="box70 h-90">
+	    <div class="d-head bg-head" >
+		    <div class="box95 h-90">
 		        <div class="fl logo">
 		             <img class="img fl" src="images/logo1.png">
 		        </div>
@@ -104,12 +112,12 @@ String str_id=request.getParameter("id");
 		<div class="d-content">
   		<div class="expertDetail">
     		<div class="expertPicture">
-    			<img src=${picUrl} class="img-circle" height="150" width="150">
+    			<img src=${picUrl} class="img-circle border" height="150" width="150">
     		</div>
     		<div class="panel panel-primary" id="expertDescription">
 				<div class="panel-heading">
-				    <div class="m-b7">
-					<h3 class=" panel-title ">${expert.name}</h3>
+				    <div class="m-sty">
+					<h3 class=" panel-title" style='font-size:18px'>${expert.name}</h3>
 					</div>
 					<span class="label label-warning"><a href="expert/getExpertBySchool?school=${expert.school}">${expert.school}</a></span>
 					<c:forEach var="expertTag" items="${expertTags}" >
@@ -126,7 +134,7 @@ String str_id=request.getParameter("id");
 		<div class="d-area">
 		<div class="expertArticle">
 			<ul class="list-group">
-    			<li class="list-group-item active">文章</li>
+    			<li class="list-group-item active" style='font-size:16px;'>文章</li>
     			<c:forEach var="expertPaper" items="${expertPapers}" >
         			<li class="list-group-item"><a>${expertPaper}</a></li>
    				</c:forEach>
@@ -191,21 +199,27 @@ String str_id=request.getParameter("id");
 															
 			</div>
 			<div class="pro">
-			<div class="panel panel-default ">
-    			<div class="panel-heading ">
+
+			<div class="panel panel-default " style='border-top-width:0'>
+    			<div class="panel-heading " style='background:#337ab7;
+    			     border-color:#337ab7;color:white;'>
         			<h3 class="panel-title ">玫瑰图</h3>
     			</div>
-    			<div class="panel-body">
+    			<div class="panel-body" >
+
         			<img src="RoseCharts/${expert.name}_rose.png" class="img-rounded img-300" >
     			</div>
 			</div>
 			</div>
 				<div class="pro">
-					<div class="panel panel-default ">
-	    				<div class="panel-heading">
+
+					<div class="panel panel-default " style='border-top-width:0'>
+	    				<div class="panel-heading " style='background:#337ab7;
+	    				     border-color:#337ab7;color:white; '>
 	        				<h3 class="panel-title">词云图</h3>
 	    				</div>
-	    				<div class="panel-body">
+	    				<div class="panel-body" >
+
 	        				<img src="WordClouds/${expert.name}.png" class="img-rounded img-300" >
 	    				</div>
 					</div>
