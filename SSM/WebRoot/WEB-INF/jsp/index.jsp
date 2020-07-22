@@ -423,11 +423,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<h1 class="panel-title"><a href="expert/getExpertById?id=${expert.id}">${expert.name}</a></h1>
 					<span class="label label-warning"><a href="expert/getExpertBySchool?school=${expert.school}">${expert.school}</a></span>
 					<span class="label label-warning"><a href="expert/getExpertByMajor?major=${expert.major}">领域：${expert.major}</a></span>
-					<%-- <span class="label label-warning"><a href="expert/getExpertBySubject?subject=${expert.subject}">${expert.subject}</a></span>
-					<c:forEach var="expertDirection" items="${expertR_D[loop.count-1]}" >
-        				<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expertDirection}">${expertDirection}</a></span>
-   					</c:forEach> --%>
-<%-- 					<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expert.research_direction}">${expert.research_direction}</a></span>--%>				
+					<%-- <span class="label label-warning"><a href="expert/getExpertBySubject?subject=${expert.subject}">${expert.subject}</a></span> --%>
+					<c:forEach var="expertTag" items="${expertTags[loop.count-1]}" >
+        				<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expertTag}">${expertTag}</a></span>
+   					</c:forEach>
 				</div>
 					<div class="panel-body">
 				    <details>
