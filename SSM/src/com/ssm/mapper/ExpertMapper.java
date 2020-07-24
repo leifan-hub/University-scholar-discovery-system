@@ -22,6 +22,7 @@ public interface ExpertMapper {
 	public List<Expert> getExpertByPaper(String paper);
 	public List<Expert> getExpertByResearch(String research_direction);
 	public List<Expert> getExpertByIntroduction(String introduction);
+	public List<String> getExpertNameByTag(String tag);
 	public Expert getExpertById(int id);
 	public int addpageview(int id);
 	public String getExpertPicByName(String name);
