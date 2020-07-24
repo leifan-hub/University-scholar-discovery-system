@@ -54,6 +54,9 @@ public class ExpertServiceImpl implements ExpertService {
 	public List<Expert> getExpertByIntroduction(String introduction){		
 		return expertMapper.getExpertByIntroduction(introduction);
 	}
+	public List<String> getExpertNameByTag(String tag){
+		return expertMapper.getExpertNameByTag(tag);
+	}
 	public Expert getExpertById(int id) {
 		return expertMapper.getExpertById(id);		
 	}	

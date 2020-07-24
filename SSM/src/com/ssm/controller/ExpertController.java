@@ -1,6 +1,7 @@
 package com.ssm.controller;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,7 @@ import com.ssm.domain.Countclass;
 import com.ssm.domain.Expert;
 import com.ssm.service.ExpertService;
 /**
-* author：胡志豪 李龙军 雷凡 涂珈玮
+* author：胡志豪 李龙军 雷凡 涂珈玮 叶茂盛
 * create: time: 2020-07-05
 * update：time:  2020-07-12
 */
@@ -228,7 +229,9 @@ public class ExpertController {
 		List<String>expertPapers=new ArrayList<String>();
 		List<String>expertTags=new ArrayList<String>();
 		List<Expert> expertRelated =new ArrayList<Expert>();
-		
+		List<Expert> expertList = expertService.getExpertList();   //用于热门标签 
+		List<String> names = new ArrayList<String>();
+		List<String> hotTags = new ArrayList<String>();
 		//System.out.println(expert.getName());
 		String picUrl =expertService.getExpertPicByName(expert.getName());
 		String[] expertPapers_string=expert.getPaper().split("#");
@@ -240,23 +243,56 @@ public class ExpertController {
 		for (String expertTag : expertTags_string) {
 			expertTags.add(expertTag);
 		}
-		List<Expert> experts =expertService.getExpertList();
-		for(Expert expertTemp : experts) {   
-			double result=expertService.getSimilarity(expertService.getExpertTagByName(expertTemp.getName()),expertService.getExpertTagByName(expert.getName()));
-			if(result>0.35&&!(expertTemp.getName().equals(expert.getName()))) {
-				expertTemp.setMajor(expertService.getExpertPicByName(expertTemp.getName()));;
-				expertRelated.add(expertTemp);
+//		int n=0;
+//		for(Expert expertTemp : experts) {   
+//			double result=expertService.getSimilarity(expertService.getExpertTagByName(expertTemp.getName()),expertService.getExpertTagByName(expert.getName()));
+//			if(n<3) {
+//				if(result>0.35&&!(expertTemp.getName().equals(expert.getName()))) {
+//					expertTemp.setMajor(expertService.getExpertPicByName(expertTemp.getName()));
+//					expertRelated.add(expertTemp);
+//					n++;
+//				}
+//			}else {
+//				break;
+//			}
+//		}
+		//同领域
+		int num=0;
+		for (String expertTag : expertTags_string) {
+			if(expertTag.length()>0) {
+				List<String> nameresearch=expertService.getExpertNameByTag(expertTag+"#");
+				for(String expertname : nameresearch) {
+					if (names.contains(expertname)!=true&&num<5&&!expertname.equals(expert.getName())) {
+						names.add(expertname);
+						if(expertService.getExpertByName(expertname).size()>0) {
+							Expert tagexpert=expertService.getExpertByName(expertname).get(0);
+							tagexpert.setMajor(expertService.getExpertPicByName(tagexpert.getName()));
+							expertRelated.add(tagexpert);
+							num++;
+						}
+					}
+				}
 			}
-		}     
+		}
+		//热门标签
+		Random r = new Random();
+		for(Expert experthot : expertList) {
+			if(expertService.getExpertTagByName(experthot.getName()).length()>0) {
+				String[] tags=expertService.getExpertTagByName(experthot.getName()).split("#");
+				int randomnum = r.nextInt(tags.length);
+				hotTags.add(tags[randomnum]);
+			}
+		}
 		ModelAndView model = new ModelAndView();
 		model.addObject("expert", expert);
 		model.addObject("expertRelated", expertRelated);
 		model.addObject("expertPapers", expertPapers);
 		model.addObject("expertTags", expertTags);
+		model.addObject("hotTags", hotTags);
 		model.addObject("picUrl", picUrl);
 		model.setViewName("expertDetail");
 		return model;
-	}	
+	}		
 	
 	
 }
