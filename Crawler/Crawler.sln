@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Crawler", "Crawler\Crawler.pyproj", "{35EC0E19-6D8B-416B-A849-8D4D20ACD883}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WordCloud", "WordCloud\WordCloud.pyproj", "{DA27BC35-4E6E-4004-A024-50BE2EFFFC35}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Rose", "Rose\Rose.pyproj", "{C11CF354-77D0-42E1-A73E-2753BFE4E3B1}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PyMySQL", "PyMySQL\PyMySQL.pyproj", "{F14CA64C-4F5A-48E7-9C82-B4E442C0A16D}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "InsertTag", "InsertTag\InsertTag.pyproj", "{9E71CEBE-E6DC-4EF1-8F6D-A15017721874}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35EC0E19-6D8B-416B-A849-8D4D20ACD883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35EC0E19-6D8B-416B-A849-8D4D20ACD883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA27BC35-4E6E-4004-A024-50BE2EFFFC35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA27BC35-4E6E-4004-A024-50BE2EFFFC35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C11CF354-77D0-42E1-A73E-2753BFE4E3B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C11CF354-77D0-42E1-A73E-2753BFE4E3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F14CA64C-4F5A-48E7-9C82-B4E442C0A16D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F14CA64C-4F5A-48E7-9C82-B4E442C0A16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E71CEBE-E6DC-4EF1-8F6D-A15017721874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E71CEBE-E6DC-4EF1-8F6D-A15017721874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15586069-DC8E-4175-9944-B098040CCEC0}
+	EndGlobalSection
+EndGlobal
