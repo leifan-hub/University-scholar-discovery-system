@@ -385,14 +385,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <div class="nav" style="text-align:center;width:100%;background:#EEEEEE;background-size:cover;">
         <ul>
-		<li style="margin-left:120px;"><a class="on" href="${pageContext.request.contextPath}"><font color="#856363" size="5"><b>首页</b></font></a></li>
+		<li style="margin-left:90px;"><a class="on" href="${pageContext.request.contextPath}"><font color="#856363" size="5"><b>首页</b></font></a></li>
 		<li><a href="expert/getExpertByName"><font color="#856363" size="5"><b>专家</b></font></a></li>
 		<li><a href="expert/getExpertBySchool"><font color="#856363" size="5"><b>高校</b></font></a></li>
+		<li><a href="expert/getExpertByResearchDirection"><font color="#856363" size="5"><b>研究领域</b></font></a></li>
 		<li><a href="expert/getExpertByMajor"><font color="#856363" size="5"><b>专业</b></font></a></li>
 		<li><a href="expert/getExpertBySubject"><font color="#856363" size="5"><b>学科</b></font></a></li>
 		<li><a href="expert/getExpertByPaper"><font color="#856363" size="5"><b>论文</b></font></a></li>
-		<li><a href="expert/getExpertByResearchDirection"><font color="#856363" size="5"><b>研究领域</b></font></a></li>
-		<li style="margin-left:50px;">
+		<li><a href="index.html" target="top"><font color="#856363" size="5"><b>知识图谱</b></font></a></li>
+		<li style="margin-left:40px;">
 			<form action="expert/getExpertByName"  method="post" accept-charset="UTF-8" onsubmit="document.charset='UTF-8'">    
 		    <input type="text" name="name" style="width:200px; height:40px;vertical-align: top;" placeholder="请输入专家名"/> 
 		    <input type="image" src="images/query1.jpg" style="width:40px; height:40px;"/>  
