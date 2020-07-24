@@ -130,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
   </head>
   
-  <body style="background:url(images/bggif.gif); background-size: cover;">
+  <body style="background:url(images/456.gif); background-size: cover;">
     <div id="div1" style="background:#F8F8FF;width:100%;z-index:10;position: fixed;text-align:center;">
     <img id="image"src="images/query.jpg" width="100" height="100" style="vertical-align:middle" > 
     <font style="FONT-FAMILY:华文行楷" size=8>按名字进行查询 </font>
@@ -172,14 +172,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<br>
     		<div class="panel panel-primary" id="expertDescription">
 				<div class="panel-heading">
-					<h3 class="panel-title"><a href="expert/getExpertById?id=${expert.id}">${expert.name}</a></h3>
+					<h1 class="panel-title"><a href="expert/getExpertById?id=${expert.id}">${expert.name}</a></h1>
 					<span class="label label-warning"><a href="expert/getExpertBySchool?school=${expert.school}">${expert.school}</a></span>
-					<span class="label label-warning"><a href="expert/getExpertByMajor?major=${expert.major}">${expert.major}</a></span>
-					<span class="label label-warning"><a href="expert/getExpertBySubject?subject=${expert.subject}">${expert.subject}</a></span>
-					<c:forEach var="expertDirection" items="${expertR_D[loop.count-1]}" >
-        				<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expertDirection}">${expertDirection}</a></span>
+					<span class="label label-warning"><a href="expert/getExpertByMajor?major=${expert.major}">领域：${expert.major}</a></span>
+					<c:forEach var="expertTag" items="${expertTags[loop.count-1]}" >
+        				<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expertTag}">${expertTag}</a></span>
    					</c:forEach>
-<%-- 					<span class="label label-warning"><a href="expert/getExpertByResearchDirection?research_direction=${expert.research_direction}">${expert.research_direction}</a></span>--%>				
 				</div>
 					<div class="panel-body">
 				    <details>

@@ -53,22 +53,21 @@ public class ExpertController {
 	@RequestMapping("/returnIndex")
 	public ModelAndView returnIndex() {
 		List<Expert> expertList = expertService.getExpertList();
-		List<List<String>> expertR_D = new ArrayList<List<String>>();
+		List<List<String>> expertTags = new ArrayList<List<String>>();
 		List<String> expertPic = new ArrayList<String>();
 		for(Expert expert : expertList) {
-			List<String>expertDirections=new ArrayList<String>();
+			List<String>expert_tag=new ArrayList<String>();
 			String picUrl =expertService.getExpertPicByName(expert.getName());
-						
-			String[] expertDirections_string=expert.getResearch_direction().split(",|。|、");
-			for (String expertDirection : expertDirections_string) {
-				expertDirections.add(expertDirection);
+			String[] expertTags_string=expertService.getExpertTagByName(expert.getName()).split("#");
+			for (String expertTag : expertTags_string) {
+				expert_tag.add(expertTag);
 			}
-			expertR_D.add(expertDirections);
+			expertTags.add(expert_tag);
 			expertPic.add(picUrl);
 		}
 		ModelAndView model = new ModelAndView();
 		model.addObject("expertList", expertList);
-		model.addObject("expertR_D", expertR_D);
+		model.addObject("expertTags", expertTags);
 		model.addObject("expertPic", expertPic);
 		model.setViewName("index");
 		return model;		
@@ -77,22 +76,21 @@ public class ExpertController {
 	@RequestMapping("/getExpertByName")
 	public ModelAndView getExpertByName(String name) {
 		List<Expert> expertList = expertService.getExpertByName(name);
-		List<List<String>> expertR_D = new ArrayList<List<String>>();
+		List<List<String>> expertTags = new ArrayList<List<String>>();
 		List<String> expertPic = new ArrayList<String>();
 		for(Expert expert : expertList) {
-			List<String>expertDirections=new ArrayList<String>();
+			List<String>expert_tag=new ArrayList<String>();
 			String picUrl =expertService.getExpertPicByName(expert.getName());
-						
-			String[] expertDirections_string=expert.getResearch_direction().split(",|。|、");
-			for (String expertDirection : expertDirections_string) {
-				expertDirections.add(expertDirection);
+			String[] expertTags_string=expertService.getExpertTagByName(expert.getName()).split("#");
+			for (String expertTag : expertTags_string) {
+				expert_tag.add(expertTag);
 			}
-			expertR_D.add(expertDirections);
+			expertTags.add(expert_tag);
 			expertPic.add(picUrl);
 		}
 		ModelAndView model = new ModelAndView();
 		model.addObject("expertList", expertList);
-		model.addObject("expertR_D", expertR_D);
+		model.addObject("expertTags", expertTags);
 		model.addObject("expertPic", expertPic);
 		model.setViewName("queryExpertName");
 		return model;
@@ -101,22 +99,21 @@ public class ExpertController {
 	@RequestMapping("/getExpertBySchool")
 	public ModelAndView getExpertBySchool(String school) {
 		List<Expert> expertList = expertService.getExpertBySchool(school);
-		List<List<String>> expertR_D = new ArrayList<List<String>>();
+		List<List<String>> expertTags = new ArrayList<List<String>>();
 		List<String> expertPic = new ArrayList<String>();
 		for(Expert expert : expertList) {
-			List<String>expertDirections=new ArrayList<String>();
+			List<String>expert_tag=new ArrayList<String>();
 			String picUrl =expertService.getExpertPicByName(expert.getName());
-						
-			String[] expertDirections_string=expert.getResearch_direction().split(",|。|、");
-			for (String expertDirection : expertDirections_string) {
-				expertDirections.add(expertDirection);
+			String[] expertTags_string=expertService.getExpertTagByName(expert.getName()).split("#");
+			for (String expertTag : expertTags_string) {
+				expert_tag.add(expertTag);
 			}
-			expertR_D.add(expertDirections);
+			expertTags.add(expert_tag);
 			expertPic.add(picUrl);
 		}
 		ModelAndView model = new ModelAndView();
 		model.addObject("expertList", expertList);
-		model.addObject("expertR_D", expertR_D);
+		model.addObject("expertTags", expertTags);
 		model.addObject("expertPic", expertPic);
 		model.setViewName("queryExpertSchool");
 		return model;
@@ -125,22 +122,21 @@ public class ExpertController {
 	@RequestMapping("/getExpertByMajor")
 	public ModelAndView getExpertByMajor(String major) {
 		List<Expert> expertList = expertService.getExpertByMajor(major);
-		List<List<String>> expertR_D = new ArrayList<List<String>>();
+		List<List<String>> expertTags = new ArrayList<List<String>>();
 		List<String> expertPic = new ArrayList<String>();
 		for(Expert expert : expertList) {
-			List<String>expertDirections=new ArrayList<String>();
+			List<String>expert_tag=new ArrayList<String>();
 			String picUrl =expertService.getExpertPicByName(expert.getName());
-						
-			String[] expertDirections_string=expert.getResearch_direction().split(",|。|、");
-			for (String expertDirection : expertDirections_string) {
-				expertDirections.add(expertDirection);
+			String[] expertTags_string=expertService.getExpertTagByName(expert.getName()).split("#");
+			for (String expertTag : expertTags_string) {
+				expert_tag.add(expertTag);
 			}
-			expertR_D.add(expertDirections);
+			expertTags.add(expert_tag);
 			expertPic.add(picUrl);
 		}
 		ModelAndView model = new ModelAndView();
 		model.addObject("expertList", expertList);
-		model.addObject("expertR_D", expertR_D);
+		model.addObject("expertTags", expertTags);
 		model.addObject("expertPic", expertPic);
 		model.setViewName("queryExpertMajor");
 		return model;
@@ -149,22 +145,21 @@ public class ExpertController {
 	@RequestMapping("/getExpertBySubject")
 	public ModelAndView getExpertBySubject(String subject) {
 		List<Expert> expertList = expertService.getExpertBySubject(subject);
-		List<List<String>> expertR_D = new ArrayList<List<String>>();
+		List<List<String>> expertTags = new ArrayList<List<String>>();
 		List<String> expertPic = new ArrayList<String>();
 		for(Expert expert : expertList) {
-			List<String>expertDirections=new ArrayList<String>();
+			List<String>expert_tag=new ArrayList<String>();
 			String picUrl =expertService.getExpertPicByName(expert.getName());
-						
-			String[] expertDirections_string=expert.getResearch_direction().split(",|。|、");
-			for (String expertDirection : expertDirections_string) {
-				expertDirections.add(expertDirection);
+			String[] expertTags_string=expertService.getExpertTagByName(expert.getName()).split("#");
+			for (String expertTag : expertTags_string) {
+				expert_tag.add(expertTag);
 			}
-			expertR_D.add(expertDirections);
+			expertTags.add(expert_tag);
 			expertPic.add(picUrl);
 		}
 		ModelAndView model = new ModelAndView();
 		model.addObject("expertList", expertList);
-		model.addObject("expertR_D", expertR_D);
+		model.addObject("expertTags", expertTags);
 		model.addObject("expertPic", expertPic);
 		model.setViewName("queryExpertSubject");
 		return model;
@@ -173,22 +168,21 @@ public class ExpertController {
 	@RequestMapping("/getExpertByPaper")
 	public ModelAndView getExpertByPaper(String paper) {
 		List<Expert> expertList = expertService.getExpertByPaper(paper);
-		List<List<String>> expertR_D = new ArrayList<List<String>>();
+		List<List<String>> expertTags = new ArrayList<List<String>>();
 		List<String> expertPic = new ArrayList<String>();
 		for(Expert expert : expertList) {
-			List<String>expertDirections=new ArrayList<String>();
+			List<String>expert_tag=new ArrayList<String>();
 			String picUrl =expertService.getExpertPicByName(expert.getName());
-						
-			String[] expertDirections_string=expert.getResearch_direction().split(",|。|、");
-			for (String expertDirection : expertDirections_string) {
-				expertDirections.add(expertDirection);
+			String[] expertTags_string=expertService.getExpertTagByName(expert.getName()).split("#");
+			for (String expertTag : expertTags_string) {
+				expert_tag.add(expertTag);
 			}
-			expertR_D.add(expertDirections);
+			expertTags.add(expert_tag);
 			expertPic.add(picUrl);
 		}
 		ModelAndView model = new ModelAndView();
 		model.addObject("expertList", expertList);
-		model.addObject("expertR_D", expertR_D);
+		model.addObject("expertTags", expertTags);
 		model.addObject("expertPic", expertPic);
 		model.setViewName("queryExpertPaper");
 		return model;
@@ -197,22 +191,21 @@ public class ExpertController {
 	@RequestMapping("/getExpertByResearchDirection")
 	public ModelAndView getExpertByResearch(String research_direction) {
 		List<Expert> expertList = expertService.getExpertByResearch(research_direction);
-		List<List<String>> expertR_D = new ArrayList<List<String>>();
+		List<List<String>> expertTags = new ArrayList<List<String>>();
 		List<String> expertPic = new ArrayList<String>();
 		for(Expert expert : expertList) {
-			List<String>expertDirections=new ArrayList<String>();
+			List<String>expert_tag=new ArrayList<String>();
 			String picUrl =expertService.getExpertPicByName(expert.getName());
-						
-			String[] expertDirections_string=expert.getResearch_direction().split(",|。|、");
-			for (String expertDirection : expertDirections_string) {
-				expertDirections.add(expertDirection);
+			String[] expertTags_string=expertService.getExpertTagByName(expert.getName()).split("#");
+			for (String expertTag : expertTags_string) {
+				expert_tag.add(expertTag);
 			}
-			expertR_D.add(expertDirections);
+			expertTags.add(expert_tag);
 			expertPic.add(picUrl);
 		}
 		ModelAndView model = new ModelAndView();
 		model.addObject("expertList", expertList);
-		model.addObject("expertR_D", expertR_D);
+		model.addObject("expertTags", expertTags);
 		model.addObject("expertPic", expertPic);
 		model.setViewName("queryExpertDirection");
 		return model;
