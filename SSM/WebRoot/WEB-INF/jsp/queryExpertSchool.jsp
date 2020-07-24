@@ -133,23 +133,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <body style="background:url(images/456.gif); background-size: cover;">
     <div id="div1" style="background:#F8F8FF;width:100%;z-index:10;position: fixed;text-align:center;">
+  	<br>
     <img id="image"src="images/query.jpg" width="100" height="100" style="vertical-align:middle" > 
     <font style="FONT-FAMILY:华文行楷" size=8>按专家所属学校进行查询 </font>
+    <br>
   </div>
+    <br>
     <br>
     <br>
     <br>
     <br>
      <div class="nav" style="text-align:center;display:block;background:#EEEEEE;background-size:cover;">
        <ul>
-		<li style="margin-left:80px;"><a href="${pageContext.request.contextPath}"><font color="#856363" size="5"><b>首页</b></font></a></li>
+		<li style="margin-left:50px;"><a href="${pageContext.request.contextPath}"><font color="#856363" size="5"><b>首页</b></font></a></li>
 		<li><a href="expert/getExpertByName"><font color="#856363" size="5"><b>专家</b></font></a></li>
 		<li><a class="on" href="expert/getExpertBySchool"><font color="#856363" size="5"><b>高校</b></font></a></li>
+		<li><a href="expert/getExpertByResearchDirection"><font color="#856363" size="5"><b>研究领域</b></font></a></li>
 		<li><a href="expert/getExpertByMajor"><font color="#856363" size="5"><b>专业</b></font></a></li>
 		<li><a href="expert/getExpertBySubject"><font color="#856363" size="5"><b>学科</b></font></a></li>
 		<li><a href="expert/getExpertByPaper"><font color="#856363" size="5"><b>论文</b></font></a></li>
-		<li><a href="expert/getExpertByResearchDirection"><font color="#856363" size="5"><b>研究领域</b></font></a></li>
-		<li style="margin-left:50px;">
+		<li><a href="index.html" target="top"><font color="#856363" size="5"><b>知识图谱</b></font></a></li>
+		<li style="margin-left:60px;">
 		<form action="expert/getExpertBySchool"  method="post" accept-charset="UTF-8" onsubmit="document.charset='UTF-8'">    
 	    <input type="text" name="school" style="width:200px; height:40px;vertical-align: top;" placeholder="请输入专家所属学校"/> 
 		<input type="image" src="images/query1.jpg" style="width:40px; height:40px;"/>  
