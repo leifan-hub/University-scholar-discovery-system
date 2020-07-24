@@ -138,7 +138,7 @@ String str_id=request.getParameter("id");
     			<c:forEach var="expertPaper" items="${expertPapers}" >
         			<li class="list-group-item"><a>${expertPaper}</a></li>
    				</c:forEach>
-    			<li class="list-group-item">
+    			<!-- <li class="list-group-item">
     				<ul class="pagination" id="changePage">
 						<li><a href="#">&laquo;</a></li>
 						<li class="active"><a>1</a></li>
@@ -148,7 +148,7 @@ String str_id=request.getParameter("id");
 						<li><a>5</a></li>
 						<li><a>&raquo;</a></li>
 					</ul>
-    			</li>
+    			</li> -->
 			</ul>			
 		</div>      
 		<div class="representative-works">
@@ -176,12 +176,11 @@ String str_id=request.getParameter("id");
 		        				<h3 class="panel-title">热门标签</h3>
 		    				</div>
 		    				<div class="panel-body">
-		    					<h4>
-		        				<span class="label label-warning"><a>大数据</a></span>
-								<span class="label label-warning"><a>人工智能</a></span>
-								<span class="label label-warning"><a>机器学习</a></span>
-								<span class="label label-warning"><a>区块链</a></span>
-								</h4>
+		    					<c:forEach var="hotTag" items="${hotTags}" >
+        				        <span class="tag label label-warning " >
+        				        <a class="f-16" href="expert/getExpertByResearchDirection?research_direction=${hotTag}">${hotTag}</a>
+        				        </span>
+   					            </c:forEach>
 		    				</div>
 						</div>
 						
